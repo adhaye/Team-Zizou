@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fomulaire Ajouter Stage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Ajouter un stage</h1>
+<!--/* Workaround for bug https://AjouterStage.jetbrains.com/issue/IDEA-132738 -->
+<!--@thymesVar id="stage" type="com.stage.servicestage.model.Stage"-->
+<!--@thymesVar id="id" type="int"-->
+<!--@thymesVar id="poste" type="String"-->
+<!--@thymesVar id="entreprise" type="String"-->
+<!--@thymesVar id="localisation" type="String"-->
+<!--@thymesVar id="date" type="String"-->
+<!--@thymesVar id="duree" type="String"-->
+<!--@thymesVar id="commentaire" type="String"-->
+<!--@thymesVar id="gratification" type="String"-->
+<!--@thymesVar id="parcours" type="String"-->
+<!--@thymesVar id="note" type="String"-->
+<!--@thymesVar id="entretiens" type="String"-->
+<!--@thymesVar id="competence" type="String"-->
+<!--@thymesVar id="decouverte" type="String"-->
+<!--*/-->
+
+<form action="/AjouterStage"  method="post"><!--th:action="@{/AjouterStage}" -->
+    <p>Id: <input type="text" /></p><!--th:field="*{id}"-->
+    <p>Poste: <input type="text" /></p><!--th:field="*{poste}"-->
+    <p>Entreprise: <input type="text" /></p><!--th:field="*{entreprise}"-->
+    <p>Localisation: <input type="text" /></p><!--th:field="*{localisation}"-->
+    <p>Date: <input type="text" /></p><!--th:field="*{date}"-->
+    <p>Durée <input type="text" /></p><!--th:field="*{duree}"-->
+    <p>Commentaire: <input type="text" /></p><!--th:field="*{commentaire}"-->
+    <p>Gratification <input type="text" /></p><!--th:field="*{gratification}"-->
+    <p>Parcours: <input type="text" /></p><!--th:field="*{parcours}"-->
+    <p>Note: <input type="text" /></p><!--th:field="*{note}"-->
+    <p>Entretiens: <input type="text" /></p><!--th:field="*{entretiens}"-->
+    <p>Compétences: <input type="text" /></p><!--th:field="*{competence}"-->
+    <p>Découverte: <input type="text" /></p><!--th:field="*{decouverte}"-->
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p><!---->
+</form>
+
+</body>
+</html>
