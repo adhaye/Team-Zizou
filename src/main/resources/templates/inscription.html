@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="subscribe.css">
+    <title>Inscription</title>
+</head>
+
+<body>
+
+
+<div class="main">
+    <p class="sign" align="center">Inscription</p>
+
+    <form class="form1" method="post" th:action="@{/inscription}" th:object="${inscriptionForm}" >
+        <div class="block_left">
+            <input class="un " type="text" align="center" placeholder="mail" name="email">
+            <input class="un " type="text" align="center" placeholder="confirmMail" name="confirmMail">
+            <input class="pass" type="password" align="center" placeholder="password" name="password">
+            <input class="pass" type="password" align="center" placeholder="confirmPassword" name="confirmPassword">
+            <input class="pass" type="text" align="center" placeholder="username" name="username">
+            <button type="submit" class="submit" align="center">Validate</button>
+        </div>
+    </form>
+
+</div>
+<a href="connexion.html" style="color:white">suite</a>
+
+</body>
+
+</html>
