@@ -37,6 +37,5 @@ public class Company {
         this.IDCompany = IDCompany;
         NameCompany = nameCompany;
     }
-
-}*/
-
+}
+*/
