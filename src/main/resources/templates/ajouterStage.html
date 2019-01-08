@@ -1,11 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Fomulaire Ajouter Stage</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<h1>Ajouter un stage</h1>
+
 <!--/* Workaround for bug https://AjouterStage.jetbrains.com/issue/IDEA-132738 -->
 <!--@thymesVar id="stage" type="com.stage.servicestage.model.Stage"-->
 <!--@thymesVar id="id" type="int"-->
@@ -23,24 +18,142 @@
 <!--@thymesVar id="decouverte" type="String"-->
 <!--*/-->
 
-<form class="form2" method="post" th:action="@{/ajouterStage}" th:object="${ajouterStage}" >
-    <!--<p>Id: <input type="int" name="id" /></p>-->
-    <p>Poste: <input type="text" name="poste"/></p>
-    <p>Entreprise: <input type="text" name="entreprise"/></p>
-    <p>Localisation: <input type="text" name="localisation" /></p>
-    <!--<p>Date: <input type="text" th:field="*{date}"/></p>
-    <p>Durée <input type="text" th:field="*{duree}"/></p>
-    <p>Commentaire: <input type="text" th:field="*{commentaire}" /></p>
-    <p>Gratification <input type="text" th:field="*{gratification}"/></p>
-    <p>Parcours: <input type="text" th:field="*{parcours}"/></p>
-    <p>Note: <input type="text" th:field="*{note}"/></p>
-    <p>Entretiens: <input type="text" th:field="*{entretiens}"/></p>
-    <p>Compétences: <input type="text" th:field="*{competence}"/></p>
-    <p>Découverte: <input type="text" th:field="*{decouverte}"/></p>
-    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p> -->
-    <button type="submit" class="submit" align="center">Validate</button>
 
-</form>
+    <head>
 
-</body>
-</html>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+        <!-- Plugin CSS -->
+        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template -->
+        <link href="css/freelancer.min.css" rel="stylesheet">
+
+    </head>
+
+    <html>
+    <head>
+        <title></title>
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.js"
+                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+                crossorigin="anonymous">
+        </script>
+        <script>
+            $(function(){
+                $("#head").load("head.html");
+                $("#header").load("header.html");
+                $("#navbar").load("navbar.html");
+                $("#footer").load("footer.html");
+            });
+        </script>
+    </head>
+    <body>
+    <div id="navbar"></div>
+
+
+    <section id="subscribe">
+        <div class="container">
+            <h2 class="text-center text-uppercase text-secondary mb-0">Ajouter un stage</h2>
+            <hr class="star-dark mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate" method="post" th:action="@{/ajouterStage}" th:object="${ajouterStage}">
+
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Nom du poste</label>
+                                <input type="text" th:field="*{poste}" placeholder="Ton poste"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Entreprise</label>
+                                <input type="text" th:field="*{entreprise}" placeholder="Ton entreprise"/>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Localisation</label>
+                                <input type="text" th:field="*{localisation}" placeholder="La ville du stage" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <!--<div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Date du début</label>
+                                    <input type="date" th:field="*{date}" placeholder="Date debut du stage"/>
+                                </div><div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Localisation</label>
+                                    <input type="text" th:field="*{duree}" placeholder="Nombre de mois"/>
+                                </div><div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Commentaires</label>
+                                    <input type="text" th:field="*{commentaire}" placeholder="Commentaires"/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Gratification</label>
+                                        <input type="text" th:field="*{gratification}" placeholder="Ton salaire en euros"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Parcours</label>
+                                        <input type="text" th:field="*{gratification}" placeholder="Ton parcours"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Note</label>
+                                        <input type="text" th:field="*{note}" placeholder ="La note que tu mets a ton stage"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Entretiens</label>
+                                        <input type="text" th:field="*{entretiens}" placeholder="Nombre d'entretiens"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Découverte</label>
+                                        <input type="text" th:field="*{decouverte}"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                -->
+
+                                <br>
+                                <div id="success"></div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+                                </div>
+                            </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
