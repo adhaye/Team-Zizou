@@ -1,53 +1,50 @@
-/*package com.stage.servicestage.model;
+package com.stage.servicestage.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="stage")
 public class Stage {
 
     @Id
     @GeneratedValue
-    private int id;
+    @Column(name = "id_stage")
+    private int idStage;
+    @Column(name = "poste")
     private String poste;
+    @Column(name = "entreprise")
     private String entreprise;
+    @Column(name = "localisation")
     private String localisation;
+    /*@Column(name = "date")
     private String date;
+    @Column(name = "duree")
     private String duree;
+    @Column(name = "commentaire")
     private String commentaire;
+    @Column(name = "gratification")
     private String gratification;
+    @Column(name = "parcours")
     private String parcours;
+    @Column(name = "note")
     private String note;
+    @Column(name = "entretiens")
     private String entretiens;
+    @Column(name = "competence")
     private String competence;
-    private String decouverte;
+    @Column(name = "decouverte")
+    private String decouverte;*/
 
     public Stage() {
 
     }
 
-    public Stage(String poste, String entreprise, String localisation, String date, String duree, String commentaire, String gratification, String parcours, String note, String entretiens, String competence, String decouverte) {
-        this.poste = poste;
-        this.entreprise = entreprise;
-        this.localisation = localisation;
-        this.date = date;
-        this.duree = duree;
-        this.commentaire = commentaire;
-        this.gratification = gratification;
-        this.parcours = parcours;
-        this.note = note;
-        this.entretiens = entretiens;
-        this.competence = competence;
-        this.decouverte = decouverte;
+    public int getIdStage() {
+        return idStage;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setIdStage(int idStage) {
+        this.idStage = idStage;
     }
 
     public String getPoste() {
@@ -74,7 +71,7 @@ public class Stage {
         this.localisation = localisation;
     }
 
-    public String getDate() {
+    /*public String getDate() {
         return date;
     }
 
@@ -144,6 +141,5 @@ public class Stage {
 
     public void setDecouverte(String decouverte) {
         this.decouverte = decouverte;
-    }
+    }*/
 }
-*/

@@ -19,13 +19,15 @@ public class Inscription {
 
     @RequestMapping(value="/inscription", method={RequestMethod.POST, RequestMethod.GET})
     public String Login(@ModelAttribute(name="inscriptionForm") User user, Model model) {
-        int id_user =4;
+        int id_user = user.getIDUSER();
         String email = user.getEmail();
         String password = user.getPassword();
         String username = user.getUsername();
 
         if (email!=null && password!=null && username!=null) {
-            connexionInscriptionDao.insertBdd(id_user, email, password, username);
+            //connexionInscriptionDao.insertBdd(id_user, email, password, username);
+
+            connexionInscriptionDao.save(user);
 
             return "accueil";
         }
