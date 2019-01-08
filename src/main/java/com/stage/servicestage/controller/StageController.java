@@ -1,4 +1,4 @@
-package com.stage.servicestage.controller;
+/*package com.stage.servicestage.controller;
 
 import com.stage.servicestage.dao.StageDao;
 import com.stage.servicestage.model.Stage;
@@ -31,3 +31,4 @@ public class StageController {
 
 
 }
+*/

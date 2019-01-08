@@ -1,26 +1,90 @@
-package com.internsheep.blog.Model;
+package com.stage.servicestage.model;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
-@JsonFilter("monFiltreDynamique")
+@Table(name="user")
+//@JsonFilter("monFiltreDynamique")
 public class User {
 
+    @Id
+    @GeneratedValue
+    @Column(name="id_user")
     private int IDUser;
-    private String EmailAddress;
-    private String Pseudo;
+    @Column(name="email")
+    private String Email;
+    @Column(name="username")
+    private String username;
+    @Column(name="password")
     private String password;
-    private int StudentNumber;
+    /*private int StudentNumber;
     private String CourseUser;
-    private String TypeOfContactUser;
+    private String TypeOfContactUser;*/
 
+    public User() {
+    }
+
+    public int getIDUSER() {
+        return IDUser;
+    }
+
+    public void setIDUser(int IDUSER) {
+        this.IDUser = IDUser;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /*public int getStudentNumber() {
+        return StudentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        StudentNumber = studentNumber;
+    }
+
+    public String getCourseUser() {
+        return CourseUser;
+    }
+
+    public void setCourseUser(String courseUser) {
+        CourseUser = courseUser;
+    }
+
+    public String getTypeOfContactUser() {
+        return TypeOfContactUser;
+    }
+
+    public void setTypeOfContactUser(String typeOfContactUser) {
+        TypeOfContactUser = typeOfContactUser;
+    }
+*/
 
 
 
