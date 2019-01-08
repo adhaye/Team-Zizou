@@ -1,7 +1,16 @@
-package com.internsheep.blog.Model;
+/*package com.stage.servicestage.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="skills")
 public class Skills {
 
+    @Id
+    @GeneratedValue
     private int IDSkills;
     private String NameSkills;
 
@@ -26,3 +35,4 @@ public class Skills {
         NameSkills = nameSkills;
     }
 }
+*/

@@ -1,4 +1,4 @@
-package com.internsheep.blog.Model;
+/*package com.stage.servicestage.model;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -7,11 +7,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.soap.Text;
 
 
 @Entity
-@JsonFilter("monFiltreDynamique")
+@Table(name="internship")
+//@JsonFilter("monFiltreDynamique")
 public class Internship {
 
     @Id
@@ -167,4 +169,4 @@ public class Internship {
 
 
 
-}
+}*/

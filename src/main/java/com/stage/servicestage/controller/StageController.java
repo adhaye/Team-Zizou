@@ -1,4 +1,4 @@
-/*package com.stage.servicestage.controller;
+package com.stage.servicestage.controller;
 
 import com.stage.servicestage.dao.StageDao;
 import com.stage.servicestage.model.Stage;
@@ -9,26 +9,31 @@ import org.springframework.ui.Model;
 
 
 import java.util.List;
+import com.stage.servicestage.model.Stage;
 
 
-@RestController
+@Controller
 public class StageController {
 
     @Autowired
     private StageDao stageDao;
 
-    @GetMapping(value="Stages")
-    public List<Stage>listeStages(){
+    @RequestMapping(value="/ajouterStage", method={RequestMethod.POST, RequestMethod.GET})
+    public String Login(@ModelAttribute(name="ajouterStage") Stage stage, Model model) {
+        //int id_stage = stage.getIdStage();
+        String poste = stage.getPoste();
+        String entreprise = stage.getEntreprise();
+        String localisation = stage.getLocalisation();
 
-        return stageDao.findAll();
+        if (poste!=null && entreprise!=null && localisation!=null) {
+            //stageDao.insertStageBdd(id_stage, poste, entreprise, localisation);
+            //stageDao.insertStageBdd(poste, entreprise, localisation);
+            stageDao.save(stage);
+
+            return "accueil";
+        }
+
+        return "ajouterStage";
     }
-
-    @GetMapping(value="Stages/{id}")
-    public Stage afficherStage(@PathVariable int id){
-
-        return stageDao.findById(id);
-    }
-
 
 }
-*/

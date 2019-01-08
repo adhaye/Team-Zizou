@@ -23,12 +23,12 @@
 <!--@thymesVar id="decouverte" type="String"-->
 <!--*/-->
 
-<form action="#" th:action="@{/AjouterStage}" th:object="${stage}"  method="post">
-    <p>Id: <input type="text" th:field="*{id}" /></p>
-    <p>Poste: <input type="text" th:field="*{poste}"/></p>
-    <p>Entreprise: <input type="text" th:field="*{entreprise}"/></p>
-    <p>Localisation: <input type="text" th:field="*{localisation}" /></p>
-    <p>Date: <input type="text" th:field="*{date}"/></p>
+<form class="form2" method="post" th:action="@{/ajouterStage}" th:object="${ajouterStage}" >
+    <!--<p>Id: <input type="int" name="id" /></p>-->
+    <p>Poste: <input type="text" name="poste"/></p>
+    <p>Entreprise: <input type="text" name="entreprise"/></p>
+    <p>Localisation: <input type="text" name="localisation" /></p>
+    <!--<p>Date: <input type="text" th:field="*{date}"/></p>
     <p>Durée <input type="text" th:field="*{duree}"/></p>
     <p>Commentaire: <input type="text" th:field="*{commentaire}" /></p>
     <p>Gratification <input type="text" th:field="*{gratification}"/></p>
@@ -37,7 +37,9 @@
     <p>Entretiens: <input type="text" th:field="*{entretiens}"/></p>
     <p>Compétences: <input type="text" th:field="*{competence}"/></p>
     <p>Découverte: <input type="text" th:field="*{decouverte}"/></p>
-    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p> -->
+    <button type="submit" class="submit" align="center">Validate</button>
+
 </form>
 
 </body>
