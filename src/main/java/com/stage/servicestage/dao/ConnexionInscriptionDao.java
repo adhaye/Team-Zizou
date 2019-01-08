@@ -10,6 +10,10 @@ import org.springframework.data.repository.query.Param;
 
 import com.stage.servicestage.model.User;
 
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+
 
 public interface ConnexionInscriptionDao extends CrudRepository <User,Integer>{
 
@@ -19,7 +23,9 @@ public interface ConnexionInscriptionDao extends CrudRepository <User,Integer>{
     @Query("SELECT username FROM User where id=:id")
     List<User> takeBdd(@Param ("id") int id);*/
 
-    @Query("SELECT password FROM User WHERE email = :email ")
+
+
+@Query("SELECT password FROM User WHERE email = :email ")
     String authentificationUser(@Param ("email") String email);
 
     @Query("SELECT username FROM User WHERE email = :email ")

@@ -1,4 +1,4 @@
-package com.stage.servicestage.model;
+/*package com.stage.servicestage.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -146,3 +146,4 @@ public class Stage {
         this.decouverte = decouverte;
     }
 }
+*/

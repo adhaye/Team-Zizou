@@ -1,4 +1,4 @@
-package com.internsheep.blog.Model;
+/*package com.internsheep.blog.Model;
 
 public class InternshipSkills {
 
@@ -47,3 +47,4 @@ public class InternshipSkills {
         this.IDSkills = IDSkills;
     }
 }
+*/

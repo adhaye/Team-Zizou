@@ -1,0 +1,5 @@
+com/stage/servicestage/ServicestageApplication.class
+com/stage/servicestage/controller/Connexion.class
+com/stage/servicestage/model/User.class
+com/stage/servicestage/controller/Inscription.class
+com/stage/servicestage/dao/ConnexionInscriptionDao.class

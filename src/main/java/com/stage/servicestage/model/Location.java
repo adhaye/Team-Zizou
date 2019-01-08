@@ -1,4 +1,4 @@
-package com.internsheep.blog.Model;
+/*package com.internsheep.blog.Model;
 
 public class Location {
 
@@ -56,3 +56,4 @@ public class Location {
         DetailsLocation = detailsLocation;
     }
 }
+*/

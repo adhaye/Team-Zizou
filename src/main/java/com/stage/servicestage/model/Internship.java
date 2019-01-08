@@ -1,4 +1,4 @@
-package com.internsheep.blog.Model;
+/*package com.internsheep.blog.Model;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -168,3 +168,4 @@ public class Internship {
 
 
 }
+*/

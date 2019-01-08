@@ -1,4 +1,4 @@
-package com.internsheep.blog.Model;
+/*package com.internsheep.blog.Model;
 
 public class Skills {
 
@@ -26,3 +26,4 @@ public class Skills {
         NameSkills = nameSkills;
     }
 }
+*/
