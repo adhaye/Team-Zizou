@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Afficher Stage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+</head>
+<body>
+<section id="subscribe">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Afficher Stage</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+
+            <div class="col-lg-8 mx-auto">
+                <table>
+                    <tr th:each="stage:${listeStage}">
+                        <ul>
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Poste</label>
+                                        <p> <td th:text="${stage.entreprise}"></td></p>
+
+
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+
+                            </li>
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Localisation</label>
+                                        <p><td th:text="${stage.localisation}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Dates</label>
+                                        <p><td th:text="${stage.date}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+
+
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Durée</label>
+                                        <p>  <td th:text="${stage.duree}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Commentaire</label>
+                                        <p>  <td th:text="${stage.commentaire}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Gratification</label>
+                                        <p> <td th:text="${stage.gratification}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Parcours</label>
+                                        <p>  <td th:text="${stage.parcours}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Note</label>
+                                        <p>   <td th:text="${stage.note}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+
+                        </ul>
+                    </tr>
+                </table>
+
+                <!--<td ></td>
+                <td th:text="${stage.entreprise}"></td>
+                <td th:text="${stage.localisation}"></td>
+
+                <td th:text="${stage.duree}"></td>
+                <td th:text="${stage.commentaire}"></td>
+                <td th:text="${stage.gratification}"></td>
+                <td th:text="${stage.parcours}"></td>
+                <td th:text="${stage.note}"></td>-->
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
