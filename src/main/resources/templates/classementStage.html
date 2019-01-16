@@ -5,6 +5,7 @@
     <title>Classement Stage</title>
 </head>
 <body>
+<<<<<<< HEAD
 <section id="subscribe">
     <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">Classement des Stages</h2>
@@ -141,4 +142,31 @@
 </section>
 
 </body>
+
+
+
+
+<table>
+    <tr>
+        <th>Classement Stages par Note</th>
+    </tr>
+    <tr th:each="stage:${listeStage2}">
+        <td th:text="${stage.poste}"></td>
+        <td th:text="${stage.entreprise}"></td>
+        <td th:text="${stage.localisation}"></td>
+        <td th:text="${stage.date}"></td>
+        <td th:text="${stage.duree}"></td>
+        <td th:text="${stage.commentaire}"></td>
+        <td th:text="${stage.gratification}"></td>
+        <td th:text="${stage.parcours}"></td>
+        <td th:text="${stage.note}"></td>
+    </tr>
+</table>
+
+</body>
+
 </html>
+
+
+
+

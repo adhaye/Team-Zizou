@@ -2,6 +2,7 @@ package com.stage.servicestage.controller;
 
 import com.stage.servicestage.dao.StageDao;
 import com.stage.servicestage.model.Stage;
+import com.stage.servicestage.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,8 @@ public class StageController {
             stageDao.save(stage);
 
             return "accueil";
+
+
         }
 
         return "ajouterStage";
@@ -79,7 +82,7 @@ public class StageController {
         if (stage.getPoste()=="" && stage.getEntreprise()=="" ) {
             List<Stage> listeStage = stageDao.findAll();
             model.addAttribute("listeStage", listeStage);
-            System.out.println("5");
+            System.out.println("4");
         }
 
 
@@ -96,17 +99,22 @@ public class StageController {
 
     }
 
-    /*
+
     @RequestMapping(value = "/classementStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String Classement(@ModelAttribute(name = "classementStage") Stage stage, Model model){
 
-        List<Stage> listeStage = stageDao.findAllByOrderByGratification(stage);
+        List<Stage> listeStage = stageDao.findAllByOrderByGratificationDesc();
         model.addAttribute("listeStage", listeStage);
+
+        List<Stage> listeStage2 = stageDao.findAllByOrderByNoteDesc();
+        model.addAttribute("listeStage2", listeStage2);
 
         return "classementStage";
 
     }
-    */
+
+
+
 
 
 }
