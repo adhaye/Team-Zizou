@@ -18,14 +18,19 @@ public class StageController {
     @Autowired
     private StageDao stageDao;
 
-    @RequestMapping(value="/ajouterStage", method={RequestMethod.POST, RequestMethod.GET})
-    public String AjoutStage(@ModelAttribute(name="ajouterStage") Stage stage, Model model) {
-        //int id_stage = stage.getIdStage();
+    @RequestMapping(value = "/ajouterStage", method = {RequestMethod.POST, RequestMethod.GET})
+    public String Login(@ModelAttribute(name = "ajouterStage") Stage stage, Model model) {
         String poste = stage.getPoste();
         String entreprise = stage.getEntreprise();
         String localisation = stage.getLocalisation();
+        String date = stage.getDate();
+        String duree = stage.getDuree();
+        String commentaire = stage.getCommentaire();
+        Integer gratification = stage.getGratification();
+        String parcours = stage.getParcours();
+        Integer note = stage.getNote();
 
-        if (poste!=null && entreprise!=null && localisation!=null) {
+        if (poste != null && entreprise != null && localisation != null && date != null && duree != null && commentaire != null && gratification != null && parcours != null && note != null) {
             //stageDao.insertStageBdd(id_stage, poste, entreprise, localisation);
             //stageDao.insertStageBdd(poste, entreprise, localisation);
             stageDao.save(stage);
@@ -36,22 +41,72 @@ public class StageController {
         return "ajouterStage";
     }
 
-    @RequestMapping(value="/afficherStage", method={RequestMethod.POST, RequestMethod.GET})
-    public String AfficherStage(@ModelAttribute(name="afficherStage") Stage stage, Model model) {
-        //int id_stage = stage.getIdStage();
-        String poste = stage.getPoste();
+    @RequestMapping(value = "/afficherStage", method = {RequestMethod.POST, RequestMethod.GET})
+    public String Affiche(@ModelAttribute(name = "afficherStage") Stage stage, Model model) {
+        /*String poste = stage.getPoste();
         String entreprise = stage.getEntreprise();
         String localisation = stage.getLocalisation();
+        String date = stage.getDate();
+        String duree = stage.getDuree();
+        String commentaire = stage.getCommentaire();
+        Integer gratification = stage.getGratification();
+        String parcours = stage.getParcours();
+        Integer note = stage.getNote();
+        System.out.println(entreprise);
+        System.out.println(poste);*/
 
-        if (poste!=null && entreprise!=null && localisation!=null) {
-            //stageDao.insertStageBdd(id_stage, poste, entreprise, localisation);
-            //stageDao.insertStageBdd(poste, entreprise, localisation);
-            stageDao.save(stage);
 
-            return "accueil";
+
+        if (stage.getPoste()!="") {
+            if (stage.getEntreprise()=="") {
+                List<Stage> listeStage = stageDao.findByPoste(stage.getPoste());
+                model.addAttribute("listeStage", listeStage);
+                System.out.println("1");
+            } else {
+                List<Stage> listeStage = stageDao.findByPosteAndEntreprise(stage.getPoste(), stage.getEntreprise());
+                model.addAttribute("listeStage", listeStage);
+                System.out.println("2");
+            }
+        }else {
+            if (stage.getEntreprise()!="") {
+                List<Stage> listeStage = stageDao.findByEntreprise(stage.getEntreprise());
+                model.addAttribute("listeStage", listeStage);
+                System.out.println("3");
+            }
         }
 
-        return "ajouterStage";
+
+        if (stage.getPoste()=="" && stage.getEntreprise()=="" ) {
+            List<Stage> listeStage = stageDao.findAll();
+            model.addAttribute("listeStage", listeStage);
+            System.out.println("5");
+        }
+
+
+        return "afficherStage";
     }
+
+    @RequestMapping(value = "/rechercherStage", method = {RequestMethod.POST, RequestMethod.GET})
+    public String Recherche(Model model) {
+
+        Stage stage = new Stage();
+        model.addAttribute("stage", stage);
+
+        return "rechercherStage";
+
+    }
+
+    /*
+    @RequestMapping(value = "/classementStage", method = {RequestMethod.POST, RequestMethod.GET})
+    public String Classement(@ModelAttribute(name = "classementStage") Stage stage, Model model){
+
+        List<Stage> listeStage = stageDao.findAllByOrderByGratification(stage);
+        model.addAttribute("listeStage", listeStage);
+
+        return "classementStage";
+
+    }
+    */
+
 
 }

@@ -26,5 +26,12 @@ public interface StageDao extends JpaRepository<Stage,Integer>{
     Stage save(Stage stage);
 
     List<Stage> findAll();
+
+    List<Stage> findByPoste(String poste);
+    List<Stage> findByEntreprise(String entreprise);
+    List<Stage> findByPosteAndEntreprise(String poste, String entreprise);
+    /*List<Stage> findAllByOrderByGratification(Stage stage);*/
+
+
 }
 

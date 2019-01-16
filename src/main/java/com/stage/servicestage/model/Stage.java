@@ -16,27 +16,33 @@ public class Stage {
     private String entreprise;
     @Column(name = "localisation")
     private String localisation;
-    /*@Column(name = "date")
+    @Column(name = "date")
     private String date;
     @Column(name = "duree")
     private String duree;
     @Column(name = "commentaire")
     private String commentaire;
     @Column(name = "gratification")
-    private String gratification;
+    private Integer gratification;
     @Column(name = "parcours")
     private String parcours;
     @Column(name = "note")
-    private String note;
-    @Column(name = "entretiens")
-    private String entretiens;
-    @Column(name = "competence")
-    private String competence;
-    @Column(name = "decouverte")
-    private String decouverte;*/
+    private Integer note;
 
     public Stage() {
 
+    }
+
+    public Stage(String poste, String entreprise, String localisation, String date, String duree, String commentaire, Integer gratification, String parcours, Integer note) {
+        this.poste = poste;
+        this.entreprise = entreprise;
+        this.localisation = localisation;
+        this.date = date;
+        this.duree = duree;
+        this.commentaire = commentaire;
+        this.gratification = gratification;
+        this.parcours = parcours;
+        this.note = note;
     }
 
     public int getIdStage() {
@@ -71,7 +77,7 @@ public class Stage {
         this.localisation = localisation;
     }
 
-    /*public String getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -95,11 +101,11 @@ public class Stage {
         this.commentaire = commentaire;
     }
 
-    public String getGratification() {
+    public Integer getGratification() {
         return gratification;
     }
 
-    public void setGratification(String gratification) {
+    public void setGratification(Integer gratification) {
         this.gratification = gratification;
     }
 
@@ -111,35 +117,12 @@ public class Stage {
         this.parcours = parcours;
     }
 
-    public String getNote() {
+    public Integer getNote() {
         return note;
     }
 
-    public void setNote(String note) {
+    public void setNote(Integer note) {
         this.note = note;
     }
 
-    public String getEntretiens() {
-        return entretiens;
-    }
-
-    public void setEntretiens(String entretiens) {
-        this.entretiens = entretiens;
-    }
-
-    public String getCompetence() {
-        return competence;
-    }
-
-    public void setCompetence(String competence) {
-        this.competence = competence;
-    }
-
-    public String getDecouverte() {
-        return decouverte;
-    }
-
-    public void setDecouverte(String decouverte) {
-        this.decouverte = decouverte;
-    }*/
 }
