@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import java.util.List;
 import com.stage.servicestage.model.Stage;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class StageController {
@@ -19,7 +22,12 @@ public class StageController {
     private StageDao stageDao;
 
     @RequestMapping(value = "/ajouterStage", method = {RequestMethod.POST, RequestMethod.GET})
-    public String Login(@ModelAttribute(name = "ajouterStage") Stage stage, Model model) {
+    public String AjouterSatge(@ModelAttribute(name = "ajouterStage") Stage stage, Model model, HttpServletRequest request) {
+        HttpSession session=request.getSession(false);
+        if (session==null){
+            return "connexion";
+        }
+
         String poste = stage.getPoste();
         String entreprise = stage.getEntreprise();
         String localisation = stage.getLocalisation();
@@ -42,7 +50,12 @@ public class StageController {
     }
 
     @RequestMapping(value = "/afficherStage", method = {RequestMethod.POST, RequestMethod.GET})
-    public String Affiche(@ModelAttribute(name = "afficherStage") Stage stage, Model model) {
+    public String Affiche(@ModelAttribute(name = "afficherStage") Stage stage, Model model, HttpServletRequest request) {
+
+        HttpSession session=request.getSession(false);
+        if (session==null){
+            return "connexion";
+        }
         /*String poste = stage.getPoste();
         String entreprise = stage.getEntreprise();
         String localisation = stage.getLocalisation();
