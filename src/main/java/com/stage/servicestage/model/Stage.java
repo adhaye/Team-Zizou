@@ -28,12 +28,14 @@ public class Stage {
     private String parcours;
     @Column(name = "note")
     private Integer note;
+    @Column(name="is_user")
+    private int IDUser;
 
     public Stage() {
 
     }
 
-    public Stage(String poste, String entreprise, String localisation, String date, String duree, String commentaire, Integer gratification, String parcours, Integer note) {
+    public Stage(String poste, String entreprise, String localisation, String date, String duree, String commentaire, Integer gratification, String parcours, Integer note, int idUser) {
         this.poste = poste;
         this.entreprise = entreprise;
         this.localisation = localisation;
@@ -43,6 +45,7 @@ public class Stage {
         this.gratification = gratification;
         this.parcours = parcours;
         this.note = note;
+        this.IDUser = idUser;
     }
 
     public int getIdStage() {
@@ -125,4 +128,11 @@ public class Stage {
         this.note = note;
     }
 
+    public int getIdUser() {
+        return IDUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.IDUser = idUser;
+    }
 }
