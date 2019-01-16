@@ -19,7 +19,25 @@ public class StageController {
     private StageDao stageDao;
 
     @RequestMapping(value="/ajouterStage", method={RequestMethod.POST, RequestMethod.GET})
-    public String Login(@ModelAttribute(name="ajouterStage") Stage stage, Model model) {
+    public String AjoutStage(@ModelAttribute(name="ajouterStage") Stage stage, Model model) {
+        //int id_stage = stage.getIdStage();
+        String poste = stage.getPoste();
+        String entreprise = stage.getEntreprise();
+        String localisation = stage.getLocalisation();
+
+        if (poste!=null && entreprise!=null && localisation!=null) {
+            //stageDao.insertStageBdd(id_stage, poste, entreprise, localisation);
+            //stageDao.insertStageBdd(poste, entreprise, localisation);
+            stageDao.save(stage);
+
+            return "accueil";
+        }
+
+        return "ajouterStage";
+    }
+
+    @RequestMapping(value="/afficherStage", method={RequestMethod.POST, RequestMethod.GET})
+    public String AfficherStage(@ModelAttribute(name="afficherStage") Stage stage, Model model) {
         //int id_stage = stage.getIdStage();
         String poste = stage.getPoste();
         String entreprise = stage.getEntreprise();

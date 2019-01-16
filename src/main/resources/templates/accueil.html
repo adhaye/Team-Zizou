@@ -2,51 +2,59 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" th:href="@{style.css}" >
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" th:href="@{vendor/bootstrap/css/bootstrap.min.css}">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" th:href="@{vendor/fontawesome-free/css/all.min.css}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" th:href="@{vendor/magnific-popup/magnific-popup.css}">
 
     <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet" th:href="@{css/freelancer.min.css}">
 
-    <script
+
+    <!--<script th:inline="javascript"
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous">
     </script>
-    <script>
-        $(function(){
 
-            $("#navbar").load("navbar.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
+
+    <script th:inline="javascript">
+        function charger(){
+            ("#navbar").load("navbar.html");
+            ("#footer").load("footer.html");
+        };
+        window.onload = charger;
+    </script>-->
+
+
 
 </head>
 <body>
 
-
-
-<div id=navbar></div>
+<header th:insert="navbar.html :: header"> </header>
+<!--<div th:include="navbar::navbar"></div>-
+<div id=navbar></div>-->
 <!-- Header -->
 <header class="masthead bg-primary text-white text-center">
     <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="sheep2.png" alt="">
+        <img class="img-fluid mb-5 d-block mx-auto" src="sheep2.png" th:src="@{sheep2.png}" alt="non">
         <h1 class="text-uppercase mb-0">Internsheep</h1>
         <hr class="star-light">
         <h2 class="font-weight-light mb-0">Partageons les stages</h2>
     </div>
 </header>
 <div id=footer></div>
+
+
 
 </body>
 

@@ -24,5 +24,7 @@ public interface StageDao extends JpaRepository<Stage,Integer>{
 */
 
     Stage save(Stage stage);
+
+    List<Stage> findAll();
 }
 

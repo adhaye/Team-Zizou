@@ -39,4 +39,6 @@ public interface ConnexionInscriptionDao extends CrudRepository <User,Integer>{
 
     User save(User user);
 
+
+
 }

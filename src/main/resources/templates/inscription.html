@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="subscribe.css">
     <title>Inscription</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/style.css">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -30,7 +30,6 @@
 
     <form class="form1" method="post" th:action="@{/inscription}" th:object="${inscriptionForm}" >
         <div class="block_left">
-            <input class="un " type="int" align="center" placeholder="id" name="id">
             <input class="un " type="text" align="center" placeholder="mail" name="email">
             <input class="un " type="text" align="center" placeholder="confirmMail" name="confirmMail">
             <input class="pass" type="password" align="center" placeholder="password" name="password">
@@ -93,7 +92,7 @@
             </div>
         </div>
     </div>
-</section>Ò
+</section>
 <a href="connexion.html" style="color:white">suite</a>
 
 </body>
