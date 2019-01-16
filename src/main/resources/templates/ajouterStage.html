@@ -22,7 +22,7 @@
     <head>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../static/style.css">
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -71,21 +71,22 @@
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                 <label>Nom du poste</label>
-                                <input type="text" th:field="*{poste}" placeholder="Ton poste"/>
+                                <!--<input type="text" th:field="*{poste}" placeholder="Ton poste"/>-->
+                                <input type="text" name="poste" placeholder="Ton poste"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                 <label>Entreprise</label>
-                                <input type="text" th:field="*{entreprise}" placeholder="Ton entreprise"/>
+                                <input type="text" name="entreprise" placeholder="Ton entreprise"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                 <label>Localisation</label>
-                                <input type="text" th:field="*{localisation}" placeholder="La ville du stage" />
+                                <input type="text" name="localisation" placeholder="La ville du stage" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <!--<div class="control-group">
