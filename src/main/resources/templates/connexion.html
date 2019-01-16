@@ -3,27 +3,67 @@
 
 <head>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+    <
     <title>Connexion</title>
 </head>
 
 <body>
 
+    <div id="navbar"></div>
 
-<div class="main">
-    <p class="sign" align="center">Member Login</p>
+<section id="connect">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Ajouter un stage</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form class="form1" method="post" th:action="@{/connexion}">
 
-    <form class="form1" method="post" th:action="@{/connexion}" >
-        <input class="un " type="text" align="center" placeholder="Mail" name="email">
-        <input class="pass" type="password" align="center" placeholder="Password" name="password">
-        <input type="submit" class="submit" align="center"/>
-    </form>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>email</label>
+                            <input class="un " type="text" align="center" placeholder="Mail" name="email">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
 
-    <!--<p class="forgot" align="center"><a th:href="@{/inscription}">Sign up</p>   th:object="${connexionForm}"-->
-</div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Nom du poste</label>
+                            <input class="pass" type="password" align="center" placeholder="Password" name="password">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Nom du poste</label>
+                            <input type="submit" class="submit" align="center"/>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="footer"></div>
 
 </body>
 
