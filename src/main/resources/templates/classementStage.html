@@ -44,11 +44,8 @@
                         <th>Parcours</th>
                         <th>Poste</th>
                         <th>Note</th>
-
                     </tr>
-                </table>
 
-                <table class="table">
                     <tr th:each="stage:${listeStage}">
 
                         <td scope="row" th:text="${stage.gratification}"></td>
@@ -89,9 +86,10 @@
             <div class="col-lg-10  mx-auto">
                 <table class="table">
 
-                    <tr>
+
                     <tr>
                         <th>Note</th>
+                        <th>Poste</th>
                         <th>Gratification</th>
                         <th>Entreprise</th>
                         <th> Ville</th>
@@ -99,24 +97,22 @@
                         <th>Durée</th>
                         <th>Commentaire</th>
                         <th>Parcours</th>
-                        <th>Poste</th>
 
 
                     </tr>
 
-                    </tr>
-                </table>
-                <table class="table">
 
                     <tr th:each="stage:${listeStage2}">
                         <td scope="row" th:text="${stage.note}"></td>
+
                         <td th:text="${stage.poste}"></td>
+                        <td th:text="${stage.gratification}"></td>
                         <td th:text="${stage.entreprise}"></td>
                         <td th:text="${stage.localisation}"></td>
                         <td th:text="${stage.date}"></td>
                         <td th:text="${stage.duree}"></td>
                         <td th:text="${stage.commentaire}"></td>
-                        <td th:text="${stage.gratification}"></td>
+
                         <td th:text="${stage.parcours}"></td>
 
                     </tr>

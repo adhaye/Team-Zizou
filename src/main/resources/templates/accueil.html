@@ -53,115 +53,42 @@
         </div>
     </header>
 
-    <table>
+
+
+    <table class="table">
+
+        <tr>
+            <th>Gratification</th>
+            <th>Entreprise</th>
+            <th> Ville</th>
+            <th>Date</th>
+            <th>Durée</th>
+            <th>Commentaire</th>
+            <th>Parcours</th>
+            <th>Poste</th>
+            <th>Note</th>
+        </tr>
+
         <tr th:each="stage:${list}">
-            <ul>
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Poste</label>
-                            <p> <td th:text="${stage.entreprise}"></td></p>
+
+            <td scope="row" th:text="${stage.gratification}"></td>
+            <td th:text="${stage.entreprise}" ></td>
 
 
+            <td th:text="${stage.localisation}"></td>
 
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
+            <td th:text="${stage.date}"></td>
 
+            <td th:text="${stage.duree}"></td>
 
-                </li>
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Localisation</label>
-                            <p><td th:text="${stage.localisation}"></td></p>
-
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </li>
+            <td th:text="${stage.commentaire}"></td>
 
 
+            <td th:text="${stage.parcours}"></td>
+            <td th:text="${stage.poste}"></td>
 
+            <td th:text="${stage.note}"></td>
 
-
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Dates</label>
-                            <p><td th:text="${stage.date}"></td></p>
-
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </li>
-
-
-
-
-
-
-
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Durée</label>
-                            <p>  <td th:text="${stage.duree}"></td></p>
-
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Commentaire</label>
-                            <p>  <td th:text="${stage.commentaire}"></td></p>
-
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Gratification</label>
-                            <p> <td th:text="${stage.gratification}"></td></p>
-
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Parcours</label>
-                            <p>  <td th:text="${stage.parcours}"></td></p>
-
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Note</label>
-                            <p>   <td th:text="${stage.note}"></td></p>
-
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </li>
-
-
-
-
-
-            </ul>
         </tr>
     </table>
 

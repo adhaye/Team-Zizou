@@ -44,72 +44,35 @@
 <!--<div th:include="navbar::navbar"></div>-
 <div id=navbar></div>-->
 <!-- Header -->
+<div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">Liste des utilisateurs</h2>
+    <hr class="star-dark mb-5">
+    <div class="row">
 
-<table>
-    <tr th:each="user:${listeUser}">
-        <ul>
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>IdUser</label>
-                        <p> <td th:text="${user.IDUser}"></td></p>
+        <div class="col-lg-8 mx-auto">
 
 
 
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
+            <div class="col-lg-10  mx-auto">
+                <table class="table">
+                    <tr>
+                        <th>ID User</th>
+                        <th>email</th>
+                        <th>User Name</th>
+                        <th>User Type</th>
 
-
-            </li>
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Email</label>
-                        <p><td th:text="${user.email}"></td></p>
-
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-            </li>
-
-
-
-
-
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Username</label>
-                        <p><td th:text="${user.username}"></td></p>
-
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-            </li>
-
-
-
-
-
-
-
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Type</label>
-                        <p>  <td th:text="${user.type}"></td></p>
-
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-            </li>
-
-
-        </ul>
-    </tr>
-</table>
-
+                    </tr>
+                    <tr th:each="user:${listeUser}">
+                        <td th:text="${user.IDUser}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.type}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <footer th:insert="footer.html :: footer"> </footer>
