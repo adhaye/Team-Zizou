@@ -24,23 +24,8 @@
 
 <body>
 
+<header th:insert="header2.html :: header2"> </header>
 
-<div class="main">
-    <p class="sign" align="center">Inscription</p>
-
-    <form class="form1" method="post" th:action="@{/inscription}" th:object="${inscriptionForm}" >
-        <div class="block_left">
-            <input class="un " type="text" align="center" placeholder="mail" name="email">
-            <input class="un " type="text" align="center" placeholder="confirmMail" name="confirmMail">
-            <input class="pass" type="password" align="center" placeholder="password" name="password">
-            <input class="pass" type="password" align="center" placeholder="confirmPassword" name="confirmPassword">
-            <input class="pass" type="text" align="center" placeholder="username" name="username">
-            <button type="submit" class="submit" align="center">Validate</button>
-        </div>
-    </form>
-
-</div>
-<header th:insert="header3.html :: header3"> </header>
 <section id="subscribe">
     <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">Mon Profile</h2>

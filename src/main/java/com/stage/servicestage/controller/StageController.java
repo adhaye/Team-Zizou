@@ -84,33 +84,27 @@ public class StageController {
 
 
 
-        if (stage.getPoste()!="") {
-            if (stage.getEntreprise()=="") {
+        model.addAttribute("stage", stage);
+
+
+        if (stage.getPoste()!= null) {
+            if (stage.getEntreprise()== null) {
                 List<Stage> listeStage = stageDao.findByPoste(stage.getPoste());
                 model.addAttribute("listeStage", listeStage);
-                System.out.println("1");
             } else {
                 List<Stage> listeStage = stageDao.findByPosteAndEntreprise(stage.getPoste(), stage.getEntreprise());
                 model.addAttribute("listeStage", listeStage);
-                System.out.println("2");
             }
-        }else {
-            if (stage.getEntreprise()!="") {
+        }else if (stage.getEntreprise() != null) {
                 List<Stage> listeStage = stageDao.findByEntreprise(stage.getEntreprise());
                 model.addAttribute("listeStage", listeStage);
-                System.out.println("3");
             }
+            //(stage.getPoste()=="" && stage.getEntreprise()=="" )
+        else {
+                List<Stage> listeStage = stageDao.findAll();
+                model.addAttribute("listeStage", listeStage);
         }
 
-
-        if (stage.getPoste()=="" && stage.getEntreprise()=="" ) {
-            List<Stage> listeStage = stageDao.findAll();
-            model.addAttribute("listeStage", listeStage);
-            System.out.println("4");
-        }
-
-        List<Stage> listeStage = stageDao.findAll();
-        model.addAttribute("listeStage", listeStage);
 
         return "afficherStage";
     }
@@ -139,8 +133,8 @@ public class StageController {
 
     }
 
-    @RequestMapping(value = "/monProfile", method = {RequestMethod.POST, RequestMethod.GET})
-    public String ModifierProfile(@ModelAttribute(name = "monProfile") Stage stage, Model model, HttpServletRequest request) {
+    @RequestMapping(value = "/monProfil", method = {RequestMethod.POST, RequestMethod.GET})
+    public String ModifierProfil(@ModelAttribute(name = "monProfil") Stage stage, Model model, HttpServletRequest request) {
 
         int id_user = (int)request.getSession().getAttribute("idUser");
         Optional<User> option = connexionInscriptionDao.findById(id_user);
@@ -148,7 +142,7 @@ public class StageController {
         //List<Stage> listeStage = stageDao.findAllByiDUser();
         //model.addAttribute("listeStage", listeStage);
 
-        return "monProfile";
+        return "monProfil";
 
     }
 
