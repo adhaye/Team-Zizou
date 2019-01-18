@@ -1,6 +1,7 @@
 package com.stage.servicestage.dao;
 
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 
@@ -38,6 +39,8 @@ public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
     @Query("SELECT IDUser FROM User WHERE email = :email ")
     Integer idUser (@Param ("email") String email);
 
+
+
     /*@Modifying
     @Query(value ="INSERT INTO user (id_user, email, password, username) VALUES (:id_user, :email, :password, :username)", nativeQuery =true)
     @Transactional
@@ -47,6 +50,10 @@ public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
     User save(User user);
 
     List<User> findAll();
+
+    Optional<User> findById(int IDUser);
+
+    void delete(User user);
 
 
 

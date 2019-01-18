@@ -53,9 +53,6 @@
                     <div class="form-group floating-label-form-group controls mb-0 pb-2">
                         <label>IdUser</label>
                         <p> <td th:text="${user.IDUser}"></td></p>
-
-
-
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
@@ -101,6 +98,16 @@
                         <p>  <td th:text="${user.type}"></td></p>
 
                         <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+
+                            <a th:href="@{/deleteUser(id_user=${user.IDUser})}">Supprimer</a>
+
                     </div>
                 </div>
             </li>

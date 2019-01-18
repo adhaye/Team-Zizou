@@ -30,7 +30,7 @@ public class Inscription {
 
             connexionInscriptionDao.save(user);
 
-            return "accueil";
+            return "connexion";
         }
 
         return "inscription";
