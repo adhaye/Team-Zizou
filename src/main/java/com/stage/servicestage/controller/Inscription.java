@@ -23,6 +23,7 @@ public class Inscription {
         String email = user.getEmail();
         String password = user.getPassword();
         String username = user.getUsername();
+        user.setType(0);
 
         if (email!=null && password!=null && username!=null) {
             //connexionInscriptionDao.insertBdd(id_user, email, password, username);

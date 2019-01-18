@@ -12,10 +12,11 @@ import com.stage.servicestage.model.User;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
 
-public interface ConnexionInscriptionDao extends CrudRepository <User,Integer>{
+public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
 
     /*List<User> findByUsername (String username);
     List<User> findAll();
@@ -25,11 +26,17 @@ public interface ConnexionInscriptionDao extends CrudRepository <User,Integer>{
 
 
 
-@Query("SELECT password FROM User WHERE email = :email ")
+    @Query("SELECT password FROM User WHERE email = :email ")
     String authentificationUser(@Param ("email") String email);
 
     @Query("SELECT username FROM User WHERE email = :email ")
     String Username(@Param ("email") String email);
+
+    @Query("SELECT type FROM User WHERE email = :email ")
+    Integer Type(@Param ("email") String email);
+
+    @Query("SELECT IDUser FROM User WHERE email = :email ")
+    Integer idUser (@Param ("email") String email);
 
     /*@Modifying
     @Query(value ="INSERT INTO user (id_user, email, password, username) VALUES (:id_user, :email, :password, :username)", nativeQuery =true)
@@ -38,6 +45,8 @@ public interface ConnexionInscriptionDao extends CrudRepository <User,Integer>{
     */
 
     User save(User user);
+
+    List<User> findAll();
 
 
 

@@ -1,6 +1,8 @@
 package com.stage.servicestage.controller;
 
+import com.stage.servicestage.dao.ConnexionInscriptionDao;
 import com.stage.servicestage.dao.StageDao;
+import com.stage.servicestage.model.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -22,19 +24,24 @@ public class Accueil {
 
     @Autowired
     private StageDao stageDao;
+    @Autowired
+    private ConnexionInscriptionDao connexionInscriptionDao;
 
     //@RequestMapping(value="/inscription", method=RequestMethod.GET)
     //public String getLoginForm() {return "subscribe";}
 
     @RequestMapping(value="/accueil", method={RequestMethod.POST,RequestMethod.GET})
-    public String affichage( HttpServletRequest request) {
+    public String affichage( HttpServletRequest request, Model model) {
         HttpSession session=request.getSession(false);
         if (session==null){
                 return "connexion";
         }
-        else{
-                return "accueil";
-        }
+
+
+        List<Stage> listeStage = stageDao.findAll();
+        model.addAttribute("list", listeStage);
+        return "accueil";
+
     }
 
     @RequestMapping(value="/deconnexion", method={RequestMethod.POST,RequestMethod.GET})
@@ -46,6 +53,24 @@ public class Accueil {
         else{
             session.invalidate();
             return "connexion";
+        }
+    }
+
+    @RequestMapping(value="/administrateur", method={RequestMethod.POST,RequestMethod.GET})
+    public String administrateur(HttpServletRequest request,Model model) {
+        HttpSession session = request.getSession(false);
+
+        if (session==null) {
+            return "connexion";
+        }
+        else if ((int) session.getAttribute("type")==0){
+            return "accueil";
+
+        }
+        else{
+            List<User> listeUser = connexionInscriptionDao.findAll();
+            model.addAttribute("listeUser", listeUser);
+            return "administrateur";
         }
     }
 }

@@ -2,6 +2,7 @@ package com.stage.servicestage.controller;
 
 import com.stage.servicestage.dao.StageDao;
 import com.stage.servicestage.model.Stage;
+import com.stage.servicestage.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -37,13 +38,20 @@ public class StageController {
         Integer gratification = stage.getGratification();
         String parcours = stage.getParcours();
         Integer note = stage.getNote();
+        Integer idUser = (int)session.getAttribute("idUser");
+        stage.setIdUser(idUser);
 
         if (poste != null && entreprise != null && localisation != null && date != null && duree != null && commentaire != null && gratification != null && parcours != null && note != null) {
             //stageDao.insertStageBdd(id_stage, poste, entreprise, localisation);
             //stageDao.insertStageBdd(poste, entreprise, localisation);
             stageDao.save(stage);
 
+            List<Stage> listeStage = stageDao.findAll();
+            model.addAttribute("list", listeStage);
+
             return "accueil";
+
+
         }
 
         return "ajouterStage";
@@ -92,7 +100,7 @@ public class StageController {
         if (stage.getPoste()=="" && stage.getEntreprise()=="" ) {
             List<Stage> listeStage = stageDao.findAll();
             model.addAttribute("listeStage", listeStage);
-            System.out.println("5");
+            System.out.println("4");
         }
 
 
@@ -109,17 +117,22 @@ public class StageController {
 
     }
 
-    /*
+
     @RequestMapping(value = "/classementStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String Classement(@ModelAttribute(name = "classementStage") Stage stage, Model model){
 
-        List<Stage> listeStage = stageDao.findAllByOrderByGratification(stage);
+        List<Stage> listeStage = stageDao.findAllByOrderByGratificationDesc();
         model.addAttribute("listeStage", listeStage);
+
+        List<Stage> listeStage2 = stageDao.findAllByOrderByNoteDesc();
+        model.addAttribute("listeStage2", listeStage2);
 
         return "classementStage";
 
     }
-    */
+
+
+
 
 
 }

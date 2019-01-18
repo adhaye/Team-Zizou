@@ -15,13 +15,16 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name="id_user")
-    private int IDUser;
+    public int IDUser;
     @Column(name="email")
     private String Email;
     @Column(name="username")
     private String username;
     @Column(name="password")
     private String password;
+    @Column(name="type")
+    private Integer type;
+
     /*private int StudentNumber;
     private String CourseUser;
     private String TypeOfContactUser;*/
@@ -59,6 +62,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     /*public int getStudentNumber() {

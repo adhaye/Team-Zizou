@@ -5,13 +5,152 @@
     <title>Classement Stage</title>
 </head>
 <body>
-<h1>Classement Stage</h1>
+<<<<<<< HEAD
+<section id="subscribe">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Classement des Stages</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+
+            <div class="col-lg-8 mx-auto">
+                <table>
+                    <tr th:each="stage:${listeStage}">
+                        <ul>
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Poste</label>
+                                        <p> <td th:text="${stage.entreprise}"></td></p>
+
+
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+
+
+                            </li>
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Localisation</label>
+                                        <p><td th:text="${stage.localisation}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Dates</label>
+                                        <p><td th:text="${stage.date}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+
+
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Durée</label>
+                                        <p>  <td th:text="${stage.duree}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Commentaire</label>
+                                        <p>  <td th:text="${stage.commentaire}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Gratification</label>
+                                        <p> <td th:text="${stage.gratification}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Parcours</label>
+                                        <p>  <td th:text="${stage.parcours}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Note</label>
+                                        <p>   <td th:text="${stage.note}"></td></p>
+
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+
+                        </ul>
+                    </tr>
+                </table>
+
+                <!--<td ></td>
+                <td th:text="${stage.entreprise}"></td>
+                <td th:text="${stage.localisation}"></td>
+
+                <td th:text="${stage.duree}"></td>
+                <td th:text="${stage.commentaire}"></td>
+                <td th:text="${stage.gratification}"></td>
+                <td th:text="${stage.parcours}"></td>
+                <td th:text="${stage.note}"></td>-->
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+
+
+
 
 <table>
     <tr>
-        <th>Classement Stages</th>
+        <th>Classement Stages par Note</th>
     </tr>
-    <tr th:each="stage:${listeStage}">
+    <tr th:each="stage:${listeStage2}">
         <td th:text="${stage.poste}"></td>
         <td th:text="${stage.entreprise}"></td>
         <td th:text="${stage.localisation}"></td>
@@ -22,6 +161,12 @@
         <td th:text="${stage.parcours}"></td>
         <td th:text="${stage.note}"></td>
     </tr>
-
-
 </table>
+
+</body>
+
+</html>
+
+
+
+
