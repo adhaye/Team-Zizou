@@ -61,6 +61,7 @@
                         <th>email</th>
                         <th>User Name</th>
                         <th>User Type</th>
+                        <th>Supprimer</th>
 
                     </tr>
                     <tr th:each="user:${listeUser}">
@@ -68,6 +69,7 @@
                         <td th:text="${user.email}"></td>
                         <td th:text="${user.username}"></td>
                         <td th:text="${user.type}"></td>
+                        <td>  <a th:href="@{/deleteUser(id_user=${user.IDUser})}">Supprimer</a></td>
                     </tr>
                 </table>
             </div>
