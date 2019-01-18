@@ -33,6 +33,8 @@ public class Administrateur {
 
         }
         else{
+            String type = (String)session.getAttribute("type");
+            model.addAttribute("type", type);
             List<User> listeUser = connexionInscriptionDao.findAll();
             model.addAttribute("listeUser", listeUser);
             return "administrateur";

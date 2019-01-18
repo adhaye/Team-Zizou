@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,6 +56,9 @@ public class StageController {
             List<Stage> listeStage = stageDao.findAll();
             model.addAttribute("list", listeStage);
 
+            String type = (String)session.getAttribute("type");
+            model.addAttribute("type", type);
+
             return "accueil";
 
 
@@ -64,30 +68,40 @@ public class StageController {
     }
 
     @RequestMapping(value = "/afficherStage", method = {RequestMethod.POST, RequestMethod.GET})
-    public String Affiche(@ModelAttribute(name = "afficherStage") Stage stage, Model model, HttpServletRequest request) {
+    public String Affiche( Model model, HttpServletRequest request) {
 
         HttpSession session=request.getSession(false);
         if (session==null){
             return "connexion";
         }
-        /*String poste = stage.getPoste();
-        String entreprise = stage.getEntreprise();
-        String localisation = stage.getLocalisation();
-        String date = stage.getDate();
-        String duree = stage.getDuree();
-        String commentaire = stage.getCommentaire();
-        Integer gratification = stage.getGratification();
-        String parcours = stage.getParcours();
-        Integer note = stage.getNote();
-        System.out.println(entreprise);
-        System.out.println(poste);*/
 
-
-
+        Stage stage = new Stage();
         model.addAttribute("stage", stage);
 
+        List<Stage> listeStage = stageDao.findAll();
+        model.addAttribute("listeStage", listeStage);
 
-        if (stage.getPoste()!= "") {
+        String type = (String)session.getAttribute("type");
+        model.addAttribute("type", type);
+
+
+        return "afficherStage";
+
+    }
+
+    @RequestMapping(value = "/rechercherStage", method = {RequestMethod.POST, RequestMethod.GET})
+    public String Recherche(@ModelAttribute(name = "afficherStage") Stage stage,Model model, HttpServletRequest request) {
+
+        HttpSession session=request.getSession(false);
+        if (session==null){
+            return "connexion";
+        }
+
+        //Stage stage = new Stage();
+        model.addAttribute("stage", stage);
+        if (stage.getPoste()!= "" ) {
+            System.out.println("1");
+
             if (stage.getEntreprise()== "") {
                 List<Stage> listeStage = stageDao.findByPoste(stage.getPoste());
                 model.addAttribute("listeStage", listeStage);
@@ -96,24 +110,14 @@ public class StageController {
                 model.addAttribute("listeStage", listeStage);
             }
         }else if (stage.getEntreprise() != "") {
-                List<Stage> listeStage = stageDao.findByEntreprise(stage.getEntreprise());
-                model.addAttribute("listeStage", listeStage);
-            }
-            //(stage.getPoste()=="" && stage.getEntreprise()=="" )
-        else {
-                List<Stage> listeStage = stageDao.findAll();
-                model.addAttribute("listeStage", listeStage);
+            System.out.println("2");
+
+            List<Stage> listeStage = stageDao.findByEntreprise(stage.getEntreprise());
+            model.addAttribute("listeStage", listeStage);
         }
 
-
-        return "afficherStage";
-    }
-
-    @RequestMapping(value = "/rechercherStage", method = {RequestMethod.POST, RequestMethod.GET})
-    public String Recherche(Model model) {
-
-        Stage stage = new Stage();
-        model.addAttribute("stage", stage);
+        String type = (String)session.getAttribute("type");
+        model.addAttribute("type", type);
 
         return "rechercherStage";
 
@@ -121,7 +125,13 @@ public class StageController {
 
 
     @RequestMapping(value = "/classementStage", method = {RequestMethod.POST, RequestMethod.GET})
-    public String Classement(@ModelAttribute(name = "classementStage") Stage stage, Model model){
+    public String Classement(@ModelAttribute(name = "classementStage") Stage stage, Model model,HttpServletRequest request){
+
+
+        HttpSession session=request.getSession(false);
+        if (session==null){
+            return "connexion";
+        }
 
         List<Stage> listeStage = stageDao.findAllByOrderByGratificationDesc();
         model.addAttribute("listeStage", listeStage);
@@ -129,21 +139,13 @@ public class StageController {
         List<Stage> listeStage2 = stageDao.findAllByOrderByNoteDesc();
         model.addAttribute("listeStage2", listeStage2);
 
+        String type = (String)session.getAttribute("type");
+        model.addAttribute("type", type);
+
         return "classementStage";
 
     }
 
-    @RequestMapping(value = "/monProfil", method = {RequestMethod.POST, RequestMethod.GET})
-    public String ModifierProfil(@ModelAttribute(name = "monProfil") Stage stage, Model model, HttpServletRequest request) {
 
-        int id_user = (int)request.getSession().getAttribute("idUser");
-        Optional<User> option = connexionInscriptionDao.findById(id_user);
-        User user = option.get();
-        //List<Stage> listeStage = stageDao.findAllByiDUser();
-        //model.addAttribute("listeStage", listeStage);
-
-        return "monProfil";
-
-    }
 
 }

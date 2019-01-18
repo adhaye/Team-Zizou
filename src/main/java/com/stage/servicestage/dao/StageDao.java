@@ -25,6 +25,9 @@ public interface StageDao extends JpaRepository<Stage,Integer>{
 
     Stage save(Stage stage);
 
+    //@Query("SELECT poste, entreprise, localisation, date, duree, commentaire, gratification, parcours, note FROM Stage WHERE IDUser = :IDUser ")
+    //List<Stage> findAllByIDUser (@Param ("IDUser") int IDUser);
+
 
     List<Stage> findAll();
 
@@ -33,8 +36,9 @@ public interface StageDao extends JpaRepository<Stage,Integer>{
     List<Stage> findByPosteAndEntreprise(String poste, String entreprise);
     List<Stage> findAllByOrderByGratificationDesc();
     List<Stage> findAllByOrderByNoteDesc();
+    List<Stage> findByIdUser(int id_user);
 
-    //List<Stage> findAllByiDUser();
+
 
 }
 

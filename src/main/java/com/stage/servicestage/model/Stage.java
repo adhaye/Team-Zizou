@@ -29,7 +29,7 @@ public class Stage {
     @Column(name = "note")
     private Integer note;
     @Column(name="id_user")
-    private int IDUser;
+    private int idUser;
 
     public Stage() {
 
@@ -45,7 +45,7 @@ public class Stage {
         this.gratification = gratification;
         this.parcours = parcours;
         this.note = note;
-        this.IDUser = idUser;
+        this.idUser = idUser;
     }
 
     public int getIdStage() {
@@ -129,10 +129,10 @@ public class Stage {
     }
 
     public int getIdUser() {
-        return IDUser;
+        return idUser;
     }
 
     public void setIdUser(int idUser) {
-        this.IDUser = idUser;
+        this.idUser = idUser;
     }
 }

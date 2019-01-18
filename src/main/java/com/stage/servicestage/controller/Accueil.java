@@ -36,6 +36,8 @@ public class Accueil {
         if (session==null){
                 return "connexion";
         }
+        String type = (String)session.getAttribute("type");
+        model.addAttribute("type", type);
 
 
         List<Stage> listeStage = stageDao.findAll();
