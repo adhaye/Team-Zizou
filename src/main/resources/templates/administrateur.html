@@ -45,77 +45,39 @@
 <div id=navbar></div>-->
 <!-- Header -->
 
-<table>
-    <tr th:each="user:${listeUser}">
-        <ul>
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>IdUser</label>
-                        <p> <td th:text="${user.IDUser}"></td></p>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
+<div class="container">
+    <p><br/><br/><br/><br/><br/><br/></p>
+    <h2 class="text-center text-uppercase text-secondary mb-0">Liste des utilisateurs</h2>
+    <hr class="star-dark mb-5">
+    <div class="row">
 
-
-            </li>
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Email</label>
-                        <p><td th:text="${user.email}"></td></p>
-
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-            </li>
+        <div class="col-lg-8 mx-auto">
 
 
 
+            <div class="col-lg-10  mx-auto">
+                <table class="table">
+                    <tr>
+                        <th>ID User</th>
+                        <th>email</th>
+                        <th>User Name</th>
+                        <th>User Type</th>
+
+                    </tr>
+                    <tr th:each="user:${listeUser}">
+                        <td th:text="${user.IDUser}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.type}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<p><br/><br/><br/></p>
 
 
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Username</label>
-                        <p><td th:text="${user.username}"></td></p>
-
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-            </li>
-
-
-
-
-
-
-
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Type</label>
-                        <p>  <td th:text="${user.type}"></td></p>
-
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-            </li>
-
-            <li>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-
-                            <a th:href="@{/deleteUser(id_user=${user.IDUser})}">Supprimer</a>
-
-                    </div>
-                </div>
-            </li>
-
-
-        </ul>
-    </tr>
-</table>
 
 
 
