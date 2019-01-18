@@ -87,15 +87,15 @@ public class StageController {
         model.addAttribute("stage", stage);
 
 
-        if (stage.getPoste()!= null) {
-            if (stage.getEntreprise()== null) {
+        if (stage.getPoste()!= "") {
+            if (stage.getEntreprise()== "") {
                 List<Stage> listeStage = stageDao.findByPoste(stage.getPoste());
                 model.addAttribute("listeStage", listeStage);
             } else {
                 List<Stage> listeStage = stageDao.findByPosteAndEntreprise(stage.getPoste(), stage.getEntreprise());
                 model.addAttribute("listeStage", listeStage);
             }
-        }else if (stage.getEntreprise() != null) {
+        }else if (stage.getEntreprise() != "") {
                 List<Stage> listeStage = stageDao.findByEntreprise(stage.getEntreprise());
                 model.addAttribute("listeStage", listeStage);
             }
