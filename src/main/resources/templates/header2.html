@@ -30,6 +30,11 @@
                     <li class="nav-item mx-0 mx-lg-1">
                         <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/afficherStage">Stages</a>
                     </li>
+                    <span th:if="${type == 1}">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/administrateur">Admin</a>
+                    </li>
+                    </span>
                     <li class="nav-item mx-0 mx-lg-1">
                         <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/deconnexion">Déconnexion</a>
                     </li>

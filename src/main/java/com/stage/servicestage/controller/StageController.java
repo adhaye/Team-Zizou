@@ -109,6 +109,8 @@ public class StageController {
             System.out.println("4");
         }
 
+        List<Stage> listeStage = stageDao.findAll();
+        model.addAttribute("listeStage", listeStage);
 
         return "afficherStage";
     }
@@ -143,8 +145,8 @@ public class StageController {
         int id_user = (int)request.getSession().getAttribute("idUser");
         Optional<User> option = connexionInscriptionDao.findById(id_user);
         User user = option.get();
-        List<Stage> listeStage = stageDao.findAllByiDUser();
-        model.addAttribute("listeStage", listeStage);
+        //List<Stage> listeStage = stageDao.findAllByiDUser();
+        //model.addAttribute("listeStage", listeStage);
 
         return "monProfile";
 
