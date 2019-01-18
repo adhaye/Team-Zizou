@@ -1,5 +1,6 @@
 package com.stage.servicestage.controller;
 
+import com.stage.servicestage.dao.ConnexionInscriptionDao;
 import com.stage.servicestage.dao.StageDao;
 import com.stage.servicestage.model.Stage;
 import com.stage.servicestage.model.User;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 
 
 import java.util.List;
+import java.util.Optional;
+
 import com.stage.servicestage.model.Stage;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +24,9 @@ public class StageController {
 
     @Autowired
     private StageDao stageDao;
+
+    @Autowired
+    private ConnexionInscriptionDao connexionInscriptionDao;
 
     @RequestMapping(value = "/ajouterStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String AjouterSatge(@ModelAttribute(name = "ajouterStage") Stage stage, Model model, HttpServletRequest request) {
@@ -131,8 +137,17 @@ public class StageController {
 
     }
 
+    @RequestMapping(value = "/monProfile", method = {RequestMethod.POST, RequestMethod.GET})
+    public String ModifierProfile(@ModelAttribute(name = "monProfile") Stage stage, Model model, HttpServletRequest request) {
 
+        int id_user = (int)request.getSession().getAttribute("idUser");
+        Optional<User> option = connexionInscriptionDao.findById(id_user);
+        User user = option.get();
+        List<Stage> listeStage = stageDao.findAllByiDUser();
+        model.addAttribute("listeStage", listeStage);
 
+        return "monProfile";
 
+    }
 
 }
