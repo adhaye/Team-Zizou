@@ -25,7 +25,7 @@ public class Accueil {
     @Autowired
     private StageDao stageDao;
     @Autowired
-    private ConnexionInscriptionDao connexionInscriptionDao;
+    private ConnexionInscriptionDao ConnexionInscriptionDao;
 
     //@RequestMapping(value="/inscription", method=RequestMethod.GET)
     //public String getLoginForm() {return "subscribe";}
@@ -56,21 +56,5 @@ public class Accueil {
         }
     }
 
-    @RequestMapping(value="/administrateur", method={RequestMethod.POST,RequestMethod.GET})
-    public String administrateur(HttpServletRequest request,Model model) {
-        HttpSession session = request.getSession(false);
 
-        if (session==null) {
-            return "connexion";
-        }
-        else if ((int) session.getAttribute("type")==0){
-            return "accueil";
-
-        }
-        else{
-            List<User> listeUser = connexionInscriptionDao.findAll();
-            model.addAttribute("listeUser", listeUser);
-            return "administrateur";
-        }
-    }
 }
