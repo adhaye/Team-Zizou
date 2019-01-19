@@ -70,7 +70,7 @@ public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
 
 
 
-    
+
 
     void delete(User user);
 

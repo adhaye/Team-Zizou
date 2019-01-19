@@ -73,6 +73,35 @@
                         <td>  <a th:href="@{/deleteUser(id_user=${user.IDUser})}">Supprimer</a></td>
                     </tr>
                 </table>
+
+                <table class="table">
+
+                    <tr>
+                        <th>Gratification</th>
+                        <th>Entreprise</th>
+                        <th> Ville</th>
+                        <th>Date</th>
+                        <th>Durée</th>
+                        <th>Commentaire</th>
+                        <th>Parcours</th>
+                        <th>Poste</th>
+                        <th>Note</th>
+                    </tr>
+
+                    <tr th:each="stage:${list}">
+
+                        <td scope="row" th:text="${stage.gratification}"></td>
+                        <td th:text="${stage.entreprise}" ></td>
+                        <td th:text="${stage.localisation}"></td>
+                        <td th:text="${stage.date}"></td>
+                        <td th:text="${stage.duree}"></td>
+                        <td th:text="${stage.commentaire}"></td>
+                        <td th:text="${stage.parcours}"></td>
+                        <td th:text="${stage.poste}"></td>
+                        <td th:text="${stage.note}"></td>
+                        <td>  <a th:href="@{/deleteStage(id_stage=${stage.id_stage})}">Supprimer</a></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

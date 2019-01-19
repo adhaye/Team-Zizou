@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 
@@ -37,6 +38,7 @@ public interface StageDao extends JpaRepository<Stage,Integer>{
     List<Stage> findAllByOrderByGratificationDesc();
     List<Stage> findAllByOrderByNoteDesc();
     List<Stage> findByIdUser(int id_user);
+    Optional<Stage> findById(int id_stage);
 
 
 

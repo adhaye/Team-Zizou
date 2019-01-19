@@ -1,6 +1,8 @@
 package com.stage.servicestage.controller;
 
 import com.stage.servicestage.dao.ConnexionInscriptionDao;
+import com.stage.servicestage.dao.StageDao;
+import com.stage.servicestage.model.Stage;
 import com.stage.servicestage.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,8 @@ public class Administrateur {
 
     @Autowired
     private ConnexionInscriptionDao connexionInscriptionDao;
+    @Autowired
+    private StageDao stageDao;
 
     @RequestMapping(value="/administrateur", method={RequestMethod.POST,RequestMethod.GET})
     public String administrateur(HttpServletRequest request, Model model) {
@@ -58,4 +62,24 @@ public class Administrateur {
 
 
     }
+
+    @RequestMapping(value = "/deleteStage", method = {RequestMethod.POST, RequestMethod.GET})
+    public String DeleteStage(@RequestParam("id_stage") Integer id_stage, Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session == null) {
+            return "connexion";
+        }
+
+
+        Optional<Stage> option = stageDao.findById(id_stage);
+        Stage stage = option.get();
+        stageDao.delete(stage);
+        List<Stage> listeStage = stageDao.findAll();
+        model.addAttribute("listeStage", listeStage);
+        return "administrateur";
+
+
+    }
+
+
 }
