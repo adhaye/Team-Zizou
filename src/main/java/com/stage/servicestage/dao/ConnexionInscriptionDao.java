@@ -68,10 +68,6 @@ public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
 
     Optional<User> findById(int IDUser);
 
-
-
-
-
     void delete(User user);
 
 

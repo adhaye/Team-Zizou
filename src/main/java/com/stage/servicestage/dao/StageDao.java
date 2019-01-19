@@ -38,7 +38,10 @@ public interface StageDao extends JpaRepository<Stage,Integer>{
     List<Stage> findAllByOrderByGratificationDesc();
     List<Stage> findAllByOrderByNoteDesc();
     List<Stage> findByIdUser(int id_user);
+
     Optional<Stage> findById(int id_stage);
+
+    void delete(Stage stage);
 
 
 
