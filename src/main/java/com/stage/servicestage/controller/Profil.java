@@ -25,7 +25,7 @@ public class Profil {
     private StageDao stageDao;
 
     @RequestMapping(value = "/monProfil", method = {RequestMethod.POST, RequestMethod.GET})
-    public String ModifierProfil(@ModelAttribute(name = "monProfil") Stage stage, Model model, HttpServletRequest request) {
+    public String ModifierProfil(@ModelAttribute(name = "updateForm") User user, Model model, HttpServletRequest request) {
 
 
         HttpSession session=request.getSession(false);
@@ -34,10 +34,34 @@ public class Profil {
         }
 
         int id_user = (int)request.getSession().getAttribute("idUser");
+        String emailUpdate = user.getEmail();
+        String passwordUpdate = user.getPassword();
+        String usernameUpdate = user.getUsername();
+
+        if (usernameUpdate != null){
+            System.out.println("okkkkkkk");
+            System.out.println(usernameUpdate);
+
+            connexionInscriptionDao.setUsername(usernameUpdate, id_user );
+            session.setAttribute("utilisateur", usernameUpdate);
+        }
+
+        if (emailUpdate != ("")){
+            connexionInscriptionDao.setEmail(emailUpdate, id_user );
+        }
+
+        if (passwordUpdate != ("")){
+            connexionInscriptionDao.setPassword(passwordUpdate, id_user );
+        }
+
+
+
+        String username = (String)request.getSession().getAttribute("utilisateur");
         Optional<User> option = connexionInscriptionDao.findById(id_user);
-        User user = option.get();
+        user = option.get();
         List<Stage> listeStage = stageDao.findByIdUser(id_user);
         model.addAttribute("listeStage", listeStage);
+        model.addAttribute("utilisateur", username);
 
 
 

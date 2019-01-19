@@ -25,29 +25,14 @@
 <body>
 
 
-<div class="main">
-    <p class="sign" align="center">Inscription</p>
-
-    <form class="form1" method="post" th:action="@{/inscription}" th:object="${inscriptionForm}" >
-        <div class="block_left">
-            <input class="un " type="text" align="center" placeholder="mail" name="email">
-            <input class="un " type="text" align="center" placeholder="confirmMail" name="confirmMail">
-            <input class="pass" type="password" align="center" placeholder="password" name="password">
-            <input class="pass" type="password" align="center" placeholder="confirmPassword" name="confirmPassword">
-            <input class="pass" type="text" align="center" placeholder="username" name="username">
-            <button type="submit" class="submit" align="center">Validate</button>
-        </div>
-    </form>
-
-</div>
-<header th:insert="header3.html :: header3"> </header>
+<header th:insert="header3.html :: header3"> </header><br><br>
 <section id="subscribe">
     <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">Inscription</h2>
         <hr class="star-dark mb-5">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form class="form1" method="post" th:action="@{/inscription}" th:object="${inscriptionForm}" >
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Nom d'utilisateur</label>
@@ -78,7 +63,7 @@
                     </div><div class="control-group">
                     <div class="form-group floating-label-form-group controls mb-0 pb-2">
                         <label>Confirme ton mot de passe</label>
-                        <input class="form-control" id="email" name="confirmPassword" placeholder="Confirme ton mot de passe" required="required" data-validation-required-message="Confirme ton mot de passe" type="password">
+                        <input class="form-control" id="pas2l" name="confirmPassword"   placeholder="Confirme ton mot de passe" required="required" data-validation-required-message="Confirme ton mot de passe" type="password">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>

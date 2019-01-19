@@ -36,7 +36,7 @@ public class Accueil {
         if (session==null){
                 return "connexion";
         }
-        String type = (String)session.getAttribute("type");
+        int type = (int)session.getAttribute("type");
         model.addAttribute("type", type);
 
 

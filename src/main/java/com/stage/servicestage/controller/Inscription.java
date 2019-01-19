@@ -25,12 +25,16 @@ public class Inscription {
         String username = user.getUsername();
         user.setType(0);
 
+
+
         if (email!=null && password!=null && username!=null) {
             //connexionInscriptionDao.insertBdd(id_user, email, password, username);
 
-            connexionInscriptionDao.save(user);
+            if (email.substring(email.length()-8, email.length()).equals("@isep.fr")) {
+                connexionInscriptionDao.save(user);
 
-            return "connexion";
+                return "connexion";
+            }
         }
 
         return "inscription";

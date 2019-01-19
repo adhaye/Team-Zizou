@@ -56,8 +56,6 @@ public class StageController {
             List<Stage> listeStage = stageDao.findAll();
             model.addAttribute("list", listeStage);
 
-            String type = (String)session.getAttribute("type");
-            model.addAttribute("type", type);
 
             return "accueil";
 
@@ -81,7 +79,7 @@ public class StageController {
         List<Stage> listeStage = stageDao.findAll();
         model.addAttribute("listeStage", listeStage);
 
-        String type = (String)session.getAttribute("type");
+        int type = (int)session.getAttribute("type");
         model.addAttribute("type", type);
 
 
@@ -116,7 +114,7 @@ public class StageController {
             model.addAttribute("listeStage", listeStage);
         }
 
-        String type = (String)session.getAttribute("type");
+        int type = (int)session.getAttribute("type");
         model.addAttribute("type", type);
 
         return "rechercherStage";
@@ -139,7 +137,7 @@ public class StageController {
         List<Stage> listeStage2 = stageDao.findAllByOrderByNoteDesc();
         model.addAttribute("listeStage2", listeStage2);
 
-        String type = (String)session.getAttribute("type");
+        int type = (int)session.getAttribute("type");
         model.addAttribute("type", type);
 
         return "classementStage";
