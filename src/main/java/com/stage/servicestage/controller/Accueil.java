@@ -38,7 +38,7 @@ public class Accueil {
         model.addAttribute("type", type1);
 
 
-        List<Stage> listeStage = stageDao.findAll();
+        List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
         model.addAttribute("list", listeStage);
         return "accueil";
 

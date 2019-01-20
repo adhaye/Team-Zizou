@@ -51,7 +51,7 @@ public class StageController {
         if (poste != null && entreprise != null && localisation != null && date != null && duree != null && commentaire != null && gratification != null && parcours != null && note != null) {
             stageDao.save(stage);
 
-            List<Stage> listeStage = stageDao.findAll();
+            List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
             model.addAttribute("list", listeStage);
 
             return "accueil";
@@ -75,7 +75,7 @@ public class StageController {
         Stage stage = new Stage();
         model.addAttribute("stage", stage);
 
-        List<Stage> listeStage = stageDao.findAll();
+        List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
         model.addAttribute("listeStage", listeStage);
 
         Integer type = (Integer)session.getAttribute("type");

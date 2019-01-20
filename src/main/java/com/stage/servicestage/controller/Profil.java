@@ -51,31 +51,23 @@ public class Profil {
 
         if (usernameUpdate != null) {
             if (usernameUpdate != ("")) {
-
                 connexionInscriptionDao.setUsername(usernameUpdate, email, password, id_user);
                 session.setAttribute("utilisateur", usernameUpdate);
-                System.out.println("10");
             }
         }
 
         if (emailUpdate != null) {
             if (emailUpdate != ("")) {
-
                 connexionInscriptionDao.setUsername(username, emailUpdate, password, id_user);
                 session.setAttribute("email", emailUpdate);
-                System.out.println("20");
             }
-
         }
 
         if (passwordUpdate != null) {
             if (passwordUpdate != ("")) {
-
                 connexionInscriptionDao.setUsername(username, email, passwordUpdate, id_user);
                 session.setAttribute("password", passwordUpdate);
-                System.out.println("30");
             }
-
         }
 
         Optional<User> option = connexionInscriptionDao.findById(id_user);
@@ -84,14 +76,8 @@ public class Profil {
         model.addAttribute("listeStage", listeStage);
         model.addAttribute("utilisateur", username);
 
-
-
         return "monProfil";
 
     }
-
-
-
-
 
 }

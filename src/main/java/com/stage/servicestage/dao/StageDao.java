@@ -19,7 +19,7 @@ import com.stage.servicestage.model.User;
 public interface StageDao extends JpaRepository<Stage,Integer>{
 
     Stage save(Stage stage);
-    List<Stage> findAll();
+    List<Stage> findAllByOrderByIdStageDesc();
     List<Stage> findByPoste(String poste);
     List<Stage> findByEntreprise(String entreprise);
     List<Stage> findByPosteAndEntreprise(String poste, String entreprise);

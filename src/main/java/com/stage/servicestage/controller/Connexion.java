@@ -49,7 +49,7 @@ public class Connexion {
                 session.setAttribute("email", email);
 
 
-                List<Stage> listeStage = stageDao.findAll();
+                List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
                 model.addAttribute("list", listeStage);
                 String type1 = type.toString();
                 model.addAttribute("type", type1);

@@ -43,7 +43,7 @@ public class Administrateur {
             List<User> listeUser = connexionInscriptionDao.findAll();
             model.addAttribute("listeUser", listeUser);
 
-            List<Stage> listeStage = stageDao.findAll();
+            List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
             model.addAttribute("listeStage", listeStage);
 
             return "administrateur";
@@ -65,7 +65,7 @@ public class Administrateur {
         List<User> listeUser = connexionInscriptionDao.findAll();
         model.addAttribute("listeUser", listeUser);
 
-        List<Stage> listeStage = stageDao.findAll();
+        List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
         model.addAttribute("listeStage", listeStage);
 
         return "administrateur";
@@ -87,7 +87,7 @@ public class Administrateur {
         Stage stage = option.get();
         stageDao.delete(stage);
 
-        List<Stage> listeStage = stageDao.findAll();
+        List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
         model.addAttribute("listeStage", listeStage);
 
         List<User> listeUser = connexionInscriptionDao.findAll();
