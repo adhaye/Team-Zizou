@@ -34,7 +34,6 @@ public class Administrateur {
         }
         else if ((int) session.getAttribute("type")==0){
             return "accueil";
-
         }
         else{
             Integer type = (Integer)session.getAttribute("type");
@@ -69,11 +68,7 @@ public class Administrateur {
         model.addAttribute("listeStage", listeStage);
 
         return "administrateur";
-
-
     }
-
-
 
     @RequestMapping(value = "/deleteStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String DeleteStage(@RequestParam("id_stage") int id_stage, Model model, HttpServletRequest request) {
@@ -81,8 +76,6 @@ public class Administrateur {
         if (session == null) {
             return "connexion";
         }
-
-
         Optional<Stage> option = stageDao.findById(id_stage);
         Stage stage = option.get();
         stageDao.delete(stage);
@@ -94,9 +87,6 @@ public class Administrateur {
         model.addAttribute("listeUser", listeUser);
 
         return "administrateur";
-
-
     }
-
 
 }

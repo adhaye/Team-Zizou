@@ -20,12 +20,8 @@ public class User {
     private String password;
     @Column(name="confirmPassword")
     private String confirmPassword;
-
-
-
     @Column(name="type")
     private Integer type;
-
 
     public User() {
     }

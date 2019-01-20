@@ -31,17 +31,15 @@ public class Accueil {
     public String affichage( HttpServletRequest request, Model model) {
         HttpSession session=request.getSession(false);
         if (session==null){
-                return "connexion";
+            return "connexion";
         }
         Integer type = (Integer)session.getAttribute("type");
         String type1 = type.toString();
         model.addAttribute("type", type1);
 
-
         List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
         model.addAttribute("list", listeStage);
         return "accueil";
-
     }
 
     @RequestMapping(value="/deconnexion", method={RequestMethod.POST,RequestMethod.GET})

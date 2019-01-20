@@ -7,33 +7,26 @@
     <title>Mon Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
-    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/style1.min.css" rel="stylesheet">
 </head>
 
 <body>
 
     <span th:if="${type == '1'}">
             <header th:insert="header4.html :: header4"> </header>
-        </span>
-
+    </span>
     <span th:unless="${type == '1'}">
             <header th:insert="header2.html :: header2"> </header>
     </span>
         <br><br>
-
-
 
     <div class="container"><br>
         <h2 class="text-center text-uppercase text-secondary mb-0"> Bienvenue  </h2><h2  class="text-center text-uppercase text-secondary mb-0" th:text="${utilisateur}"></h2>
@@ -56,13 +49,7 @@
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Confirmez votre email</label>
-                            <input class="form-control" id="email1" type="email" placeholder="Confirme ton email"  data-validation-required-message="Entre ton adresse email" name="confirmMail">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
+
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Mot de passe</label>
@@ -88,128 +75,22 @@
         </div>
     </div>
 
-<!--<div class="container"><br>
-        <h2 class="text-center text-uppercase text-secondary mb-0"> Bienvenue  </h2><h2  class="text-center text-uppercase text-secondary mb-0" th:text="${utilisateur}"></h2>
-        <hr class="star-dark mb-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h3 class="text-center text-uppercase text-secondary mb-0"> Modifiez vos informations  </h3>
-                <form class="form1" method="post" th:action="@{/monProfil}" th:object="${updateForm}" >
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Nom d'utilisateur</label>
-                            <input class="form-control" id="username" type="text" placeholder="Entre ton nom"  data-validation-required-message="Entre ton nom" name="username">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                </div>
-
-                    <br>
-                    <div id="success"></div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-<div class="container"><br>
-    <hr class="star-dark mb-5">
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <form class="form1" method="post" th:action="@{/monProfil}" th:object="${updateForm}" >
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Adresse email</label>
-                        <input class="form-control" id="email2" type="email" placeholder="Entre ton adresse email"  data-validation-required-message="Entre ton adresse email" name="email">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Confirmez votre email</label>
-                        <input class="form-control" id="email1" type="email" placeholder="Confirme ton email"  data-validation-required-message="Entre ton adresse email" name="confirmMail">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div>
-
-                <br>
-                <div id="success"></div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-
-<div class="container"><br>
-    <hr class="star-dark mb-5">
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <form class="form1" method="post" th:action="@{/monProfil}" th:object="${updateForm}" >
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <label>Mot de passe</label>
-                        <input class="form-control" id="pas1" type="password" placeholder="Entre ton Mot de passe"  data-validation-required-message="Entre ton Mot de passe" name="password">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                </div><div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                    <label>Confirme ton mot de passe</label>
-                    <input class="form-control" id="pas2l" name="confirmPassword"   placeholder="Confirme ton mot de passe"  data-validation-required-message="Confirme ton mot de passe" type="password">
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-
-                <br>
-                <div id="success"></div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-
-
-
--->
-
-
-
 <h2 class="text-center text-uppercase text-secondary mb-0"> Vos stages :  </h2><br>
 <table class="table">
     <tr th:each="stage:${listeStage}">
         <td th:text="${stage.entreprise}" ></td>
         <td scope="row" th:text="${stage.gratification}"></td>
-
-
-
         <td th:text="${stage.localisation}"></td>
-
         <td th:text="${stage.date}"></td>
-
         <td th:text="${stage.duree}"></td>
-
         <td th:text="${stage.commentaire}"></td>
-
-
         <td th:text="${stage.parcours}"></td>
         <td th:text="${stage.poste}"></td>
-
         <td th:text="${stage.note}"></td>
-
     </tr>
 </table>
-
-
 
 <footer th:insert="footer.html :: footer"> </footer>
 
 </body>
-
 </html>

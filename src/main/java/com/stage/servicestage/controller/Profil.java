@@ -39,13 +39,12 @@ public class Profil {
 
         int id_user = (int)request.getSession().getAttribute("idUser");
         String email = (String)request.getSession().getAttribute("email");
-
         String password = connexionInscriptionDao.authentificationUser(email);
         String username = (String)request.getSession().getAttribute("utilisateur");
 
-
         String emailUpdate = user.getEmail();
         String passwordUpdate = user.getPassword();
+        String confirmPasswordUpdate = user.getConfirmPassword();
         String usernameUpdate = user.getUsername();
 
 
@@ -65,19 +64,17 @@ public class Profil {
 
         if (passwordUpdate != null) {
             if (passwordUpdate != ("")) {
-                connexionInscriptionDao.setUsername(username, email, passwordUpdate, id_user);
-                session.setAttribute("password", passwordUpdate);
+                if (passwordUpdate.equals(confirmPasswordUpdate)) {
+                    connexionInscriptionDao.setUsername(username, email, passwordUpdate, id_user);
+                }
             }
         }
 
-        Optional<User> option = connexionInscriptionDao.findById(id_user);
-        user = option.get();
         List<Stage> listeStage = stageDao.findByIdUser(id_user);
         model.addAttribute("listeStage", listeStage);
         model.addAttribute("utilisateur", username);
 
         return "monProfil";
-
     }
 
 }

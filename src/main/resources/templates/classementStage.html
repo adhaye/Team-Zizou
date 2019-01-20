@@ -7,24 +7,20 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/style1.min.css" rel="stylesheet">
 </head>
 <body>
     <span th:if="${type == '1'}">
             <header th:insert="header4.html :: header4"> </header>
-        </span>
+    </span>
 
     <span th:unless="${type == '1'}">
             <header th:insert="header2.html :: header2"> </header>
@@ -35,12 +31,8 @@
         <h2 class="text-center text-uppercase text-secondary mb-0">Classement des Stages</h2>
         <hr class="star-dark mb-5">
         <div class="row">
-
-
             <h3 class="text-center text-uppercase text-secondary mb-0">Classement par salaire</h3>
-            <p><br/><br/></p>
-
-
+            <br><br>
             <div class="col-lg-10  mx-auto">
                 <table class="table">
 
@@ -60,43 +52,21 @@
 
                         <td scope="row" th:text="${stage.gratification}"></td>
                         <td th:text="${stage.entreprise}" ></td>
-
-
                         <td th:text="${stage.localisation}"></td>
-
                         <td th:text="${stage.date}"></td>
-
                         <td th:text="${stage.duree}"></td>
-
                         <td th:text="${stage.commentaire}"></td>
-
-
                         <td th:text="${stage.parcours}"></td>
                         <td th:text="${stage.poste}"></td>
-
                         <td th:text="${stage.note}"></td>
-
                     </tr>
                 </table>
             </div>
-
-
-
-
-
-
-
-
-
-
-
             <h3 class="text-center text-uppercase text-secondary mb-0">Classement par note</h3>
             <p><br/><br/></p>
 
             <div class="col-lg-10  mx-auto">
                 <table class="table">
-
-
                     <tr>
                         <th>Note</th>
                         <th>Poste</th>
@@ -108,13 +78,10 @@
                         <th>Commentaire</th>
                         <th>Parcours</th>
 
-
                     </tr>
-
 
                     <tr th:each="stage:${listeStage2}">
                         <td scope="row" th:text="${stage.note}"></td>
-
                         <td th:text="${stage.poste}"></td>
                         <td th:text="${stage.gratification}"></td>
                         <td th:text="${stage.entreprise}"></td>
@@ -122,9 +89,7 @@
                         <td th:text="${stage.date}"></td>
                         <td th:text="${stage.duree}"></td>
                         <td th:text="${stage.commentaire}"></td>
-
                         <td th:text="${stage.parcours}"></td>
-
                     </tr>
                 </table>
 
@@ -137,5 +102,4 @@
 <footer th:insert="footer.html :: footer"> </footer>
 
 </body>
-
 </html>

@@ -49,10 +49,4 @@ public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
     Optional<User> findById(int IDUser);
     void delete(User user);
 
-/*@Modifying
-    @Query(value ="INSERT INTO user (id_user, email, password, username) VALUES (:id_user, :email, :password, :username)", nativeQuery =true)
-    @Transactional
-    void insertBdd(@Param ("id_user") int ok, @Param ("email") String string, @Param ("password") String string1,@Param ("username") String string3);
-    */
-
 }

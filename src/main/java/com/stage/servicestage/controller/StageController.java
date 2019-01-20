@@ -26,9 +26,6 @@ public class StageController {
     @Autowired
     private StageDao stageDao;
 
-    @Autowired
-    private ConnexionInscriptionDao connexionInscriptionDao;
-
     @RequestMapping(value = "/ajouterStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String AjouterSatge(@ModelAttribute(name = "ajouterStage") Stage stage, Model model, HttpServletRequest request) {
         HttpSession session=request.getSession(false);
@@ -66,7 +63,6 @@ public class StageController {
 
     @RequestMapping(value = "/afficherStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String Affiche( Model model, HttpServletRequest request) {
-
         HttpSession session=request.getSession(false);
         if (session==null){
             return "connexion";
@@ -82,14 +78,11 @@ public class StageController {
         String type1 = type.toString();
         model.addAttribute("type", type1);
 
-
         return "afficherStage";
-
     }
 
     @RequestMapping(value = "/rechercherStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String Recherche(@ModelAttribute(name = "afficherStage") Stage stage,Model model, HttpServletRequest request) {
-
         HttpSession session=request.getSession(false);
         if (session==null){
             return "connexion";
@@ -97,8 +90,6 @@ public class StageController {
 
         model.addAttribute("stage", stage);
         if (stage.getPoste()!= "" ) {
-            System.out.println("1");
-
             if (stage.getEntreprise()== "") {
                 List<Stage> listeStage = stageDao.findByPoste(stage.getPoste());
                 model.addAttribute("listeStage", listeStage);
@@ -107,8 +98,6 @@ public class StageController {
                 model.addAttribute("listeStage", listeStage);
             }
         }else if (stage.getEntreprise() != "") {
-            System.out.println("2");
-
             List<Stage> listeStage = stageDao.findByEntreprise(stage.getEntreprise());
             model.addAttribute("listeStage", listeStage);
         }
@@ -118,14 +107,10 @@ public class StageController {
         model.addAttribute("type", type1);
 
         return "rechercherStage";
-
     }
-
 
     @RequestMapping(value = "/classementStage", method = {RequestMethod.POST, RequestMethod.GET})
     public String Classement(@ModelAttribute(name = "classementStage") Stage stage, Model model,HttpServletRequest request){
-
-
         HttpSession session=request.getSession(false);
         if (session==null){
             return "connexion";

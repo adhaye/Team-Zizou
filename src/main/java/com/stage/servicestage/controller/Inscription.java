@@ -18,26 +18,19 @@ public class Inscription {
     private ConnexionInscriptionDao connexionInscriptionDao;
 
     @RequestMapping(value="/inscription", method={RequestMethod.POST, RequestMethod.GET})
-    public String Login(@ModelAttribute(name="inscriptionForm") User user, Model model) {
-        int id_user = user.getIDUSER();
+    public String Login(@ModelAttribute(name="inscriptionForm") User user) {
         String email = user.getEmail();
         String password = user.getPassword();
         String confirmPassword = user.getConfirmPassword();
         String username = user.getUsername();
         user.setType(0);
 
-
-
         if (email!=null && password!=null && username!=null) {
-            //connexionInscriptionDao.insertBdd(id_user, email, password, username);
-
             if (email.substring(email.length()-8, email.length()).equals("@isep.fr") && password.equals(confirmPassword)) {
                 connexionInscriptionDao.save(user);
-
                 return "connexion";
             }
         }
-
         return "inscription";
     }
 
