@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
+    <title>Accueil</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" th:href="@{style.css}" >
@@ -40,14 +41,14 @@
 </head>
 <body>
     
-    <span th:if="${type == 1}">
+    <span th:if="${type == '1'}">
+        <header th:insert="header4.html :: header4"> </header>
+    </span>
 
-                    <header th:insert="header4.html :: header4"> </header>
-</span>
+    <span th:unless="${type == '1'}">
+        <header th:insert="header2.html :: header2"> </header>
+    </span>
 
-<span th:else>
-
-    <header th:insert="header2.html :: header2"> </header>
     <!--<div th:include="navbar::navbar"></div>-
     <div id=navbar></div>-->
     <!-- Header -->
@@ -59,7 +60,8 @@
             <img th:src="@{sheep2.png}" alt="non">
         </div>
     </header>
-</span>
+
+
 
     <table class="table">
 

@@ -33,6 +33,10 @@ public class Profil {
             return "connexion";
         }
 
+        Integer type = (Integer)session.getAttribute("type");
+        String type1 = type.toString();
+        model.addAttribute("type", type1);
+
         int id_user = (int)request.getSession().getAttribute("idUser");
         String emailUpdate = user.getEmail();
         String passwordUpdate = user.getPassword();

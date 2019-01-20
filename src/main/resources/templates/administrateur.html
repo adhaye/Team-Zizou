@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
+    <title>Administrateur</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" th:href="@{style.css}" >
@@ -88,7 +89,7 @@
                         <th>Note</th>
                     </tr>
 
-                    <tr th:each="stage:${list}">
+                    <tr th:each="stage:${listeStage}">
 
                         <td scope="row" th:text="${stage.gratification}"></td>
                         <td th:text="${stage.entreprise}" ></td>
@@ -99,7 +100,7 @@
                         <td th:text="${stage.parcours}"></td>
                         <td th:text="${stage.poste}"></td>
                         <td th:text="${stage.note}"></td>
-                        <td>  <a th:href="@{/deleteStage(id_stage=${stage.id_stage})}">Supprimer</a></td>
+                        <td>  <a th:href="@{/deleteStage(id_stage=${stage.idStage})}">Supprimer</a></td>
                     </tr>
                 </table>
             </div>

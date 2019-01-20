@@ -24,8 +24,14 @@
 
 <body>
 
-<header th:insert="header2.html :: header2"> </header>
-<br><br>
+    <span th:if="${type == '1'}">
+            <header th:insert="header4.html :: header4"> </header>
+        </span>
+
+    <span th:unless="${type == '1'}">
+            <header th:insert="header2.html :: header2"> </header>
+    </span>
+        <br><br>
 
 
 

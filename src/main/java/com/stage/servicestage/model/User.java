@@ -1,15 +1,11 @@
 package com.stage.servicestage.model;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 
 @Entity
 @Table(name="user")
-//@JsonFilter("monFiltreDynamique")
 public class User {
 
     @Id
@@ -22,12 +18,14 @@ public class User {
     private String username;
     @Column(name="password")
     private String password;
+    @Column(name="confirmPassword")
+    private String confirmPassword;
+
+
+
     @Column(name="type")
     private Integer type;
 
-    /*private int StudentNumber;
-    private String CourseUser;
-    private String TypeOfContactUser;*/
 
     public User() {
     }
@@ -72,31 +70,9 @@ public class User {
         this.type = type;
     }
 
-    /*public int getStudentNumber() {
-        return StudentNumber;
-    }
+    public String getConfirmPassword() {return confirmPassword;    }
 
-    public void setStudentNumber(int studentNumber) {
-        StudentNumber = studentNumber;
-    }
-
-    public String getCourseUser() {
-        return CourseUser;
-    }
-
-    public void setCourseUser(String courseUser) {
-        CourseUser = courseUser;
-    }
-
-    public String getTypeOfContactUser() {
-        return TypeOfContactUser;
-    }
-
-    public void setTypeOfContactUser(String typeOfContactUser) {
-        TypeOfContactUser = typeOfContactUser;
-    }
-*/
-
+    public void setConfirmPassword(String confirmPassword) {this.confirmPassword = confirmPassword;    }
 
 
 }

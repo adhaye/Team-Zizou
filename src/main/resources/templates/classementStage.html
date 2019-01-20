@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Afficher Stage</title>
+    <title>Classements</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <!-- Bootstrap core CSS -->
@@ -20,7 +20,14 @@
     <link href="css/freelancer.min.css" rel="stylesheet">
 </head>
 <body>
-<header th:insert="header2.html :: header2"> </header><br><br>
+    <span th:if="${type == '1'}">
+            <header th:insert="header4.html :: header4"> </header>
+        </span>
+
+    <span th:unless="${type == '1'}">
+            <header th:insert="header2.html :: header2"> </header>
+    </span><br><br>
+
 <section >
     <div class="container">
         <h2 class="text-center text-uppercase text-secondary mb-0">Classement des Stages</h2>

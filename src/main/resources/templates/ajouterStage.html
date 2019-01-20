@@ -21,6 +21,8 @@
 
     <head>
 
+        <title>Ajouter un Stage</title>
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <link rel="stylesheet" href="../static/css/style.css">
         <!-- Bootstrap core CSS -->
@@ -41,7 +43,13 @@
 
     </head>
     <body>
-    <header th:insert="header2.html :: header2"> </header>
+    <span th:if="${type == '1'}">
+        <header th:insert="header4.html :: header4"> </header>
+    </span>
+
+    <span th:unless="${type == '1'}">
+        <header th:insert="header2.html :: header2"> </header>
+    </span>
 
    <p><br/><br/></p>
     <section id="subscribe">

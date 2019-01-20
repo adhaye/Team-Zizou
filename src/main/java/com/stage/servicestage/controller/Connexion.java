@@ -28,8 +28,7 @@ public class Connexion {
     @Autowired
     private StageDao stageDao;
 
-    //@RequestMapping(value="/inscription", method=RequestMethod.GET)
-    //public String getLoginForm() {return "subscribe";}
+
 
     @RequestMapping(value="/connexion", method={RequestMethod.POST,RequestMethod.GET})
     public String Login(@ModelAttribute(name="connexionForm") User user, Model model, HttpServletRequest request) {
@@ -47,7 +46,8 @@ public class Connexion {
                 session.setAttribute("type", type);
                 List<Stage> listeStage = stageDao.findAll();
                 model.addAttribute("list", listeStage);
-                model.addAttribute("type", type);
+                String type1 = type.toString();
+                model.addAttribute("type", type1);
                 return "accueil";
             }
             else {

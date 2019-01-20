@@ -22,6 +22,7 @@ public class Inscription {
         int id_user = user.getIDUSER();
         String email = user.getEmail();
         String password = user.getPassword();
+        String confirmPassword = user.getConfirmPassword();
         String username = user.getUsername();
         user.setType(0);
 
@@ -30,7 +31,7 @@ public class Inscription {
         if (email!=null && password!=null && username!=null) {
             //connexionInscriptionDao.insertBdd(id_user, email, password, username);
 
-            if (email.substring(email.length()-8, email.length()).equals("@isep.fr")) {
+            if (email.substring(email.length()-8, email.length()).equals("@isep.fr") && password.equals(confirmPassword)) {
                 connexionInscriptionDao.save(user);
 
                 return "connexion";

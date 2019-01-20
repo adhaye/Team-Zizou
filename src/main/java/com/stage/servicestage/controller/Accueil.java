@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
-
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +26,6 @@ public class Accueil {
     @Autowired
     private ConnexionInscriptionDao ConnexionInscriptionDao;
 
-    //@RequestMapping(value="/inscription", method=RequestMethod.GET)
-    //public String getLoginForm() {return "subscribe";}
 
     @RequestMapping(value="/accueil", method={RequestMethod.POST,RequestMethod.GET})
     public String affichage( HttpServletRequest request, Model model) {
@@ -36,8 +33,9 @@ public class Accueil {
         if (session==null){
                 return "connexion";
         }
-        int type = (int)session.getAttribute("type");
-        model.addAttribute("type", type);
+        Integer type = (Integer)session.getAttribute("type");
+        String type1 = type.toString();
+        model.addAttribute("type", type1);
 
 
         List<Stage> listeStage = stageDao.findAll();

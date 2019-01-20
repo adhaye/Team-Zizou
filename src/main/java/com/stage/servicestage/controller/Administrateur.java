@@ -37,10 +37,15 @@ public class Administrateur {
 
         }
         else{
-            int type = (int)session.getAttribute("type");
-            model.addAttribute("type", type);
+            Integer type = (Integer)session.getAttribute("type");
+            String type1 = type.toString();
+            model.addAttribute("type", type1);
             List<User> listeUser = connexionInscriptionDao.findAll();
             model.addAttribute("listeUser", listeUser);
+
+            List<Stage> listeStage = stageDao.findAll();
+            model.addAttribute("listeStage", listeStage);
+
             return "administrateur";
         }
     }
@@ -56,8 +61,13 @@ public class Administrateur {
         Optional<User> option = connexionInscriptionDao.findById(id_user);
         User user = option.get();
         connexionInscriptionDao.delete(user);
+
         List<User> listeUser = connexionInscriptionDao.findAll();
         model.addAttribute("listeUser", listeUser);
+
+        List<Stage> listeStage = stageDao.findAll();
+        model.addAttribute("listeStage", listeStage);
+
         return "administrateur";
 
 
@@ -74,8 +84,13 @@ public class Administrateur {
         Optional<Stage> option = stageDao.findById(id_stage);
         Stage stage = option.get();
         stageDao.delete(stage);
+
         List<Stage> listeStage = stageDao.findAll();
         model.addAttribute("listeStage", listeStage);
+
+        List<User> listeUser = connexionInscriptionDao.findAll();
+        model.addAttribute("listeUser", listeUser);
+
         return "administrateur";
 
 

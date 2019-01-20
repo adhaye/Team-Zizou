@@ -49,18 +49,17 @@ public class StageController {
         stage.setIdUser(idUser);
 
         if (poste != null && entreprise != null && localisation != null && date != null && duree != null && commentaire != null && gratification != null && parcours != null && note != null) {
-            //stageDao.insertStageBdd(id_stage, poste, entreprise, localisation);
-            //stageDao.insertStageBdd(poste, entreprise, localisation);
             stageDao.save(stage);
 
             List<Stage> listeStage = stageDao.findAll();
             model.addAttribute("list", listeStage);
 
-
             return "accueil";
-
-
         }
+
+        Integer type = (Integer)session.getAttribute("type");
+        String type1 = type.toString();
+        model.addAttribute("type", type1);
 
         return "ajouterStage";
     }
@@ -79,8 +78,9 @@ public class StageController {
         List<Stage> listeStage = stageDao.findAll();
         model.addAttribute("listeStage", listeStage);
 
-        int type = (int)session.getAttribute("type");
-        model.addAttribute("type", type);
+        Integer type = (Integer)session.getAttribute("type");
+        String type1 = type.toString();
+        model.addAttribute("type", type1);
 
 
         return "afficherStage";
@@ -95,7 +95,6 @@ public class StageController {
             return "connexion";
         }
 
-        //Stage stage = new Stage();
         model.addAttribute("stage", stage);
         if (stage.getPoste()!= "" ) {
             System.out.println("1");
@@ -114,8 +113,9 @@ public class StageController {
             model.addAttribute("listeStage", listeStage);
         }
 
-        int type = (int)session.getAttribute("type");
-        model.addAttribute("type", type);
+        Integer type = (Integer)session.getAttribute("type");
+        String type1 = type.toString();
+        model.addAttribute("type", type1);
 
         return "rechercherStage";
 
@@ -137,13 +137,12 @@ public class StageController {
         List<Stage> listeStage2 = stageDao.findAllByOrderByNoteDesc();
         model.addAttribute("listeStage2", listeStage2);
 
-        int type = (int)session.getAttribute("type");
-        model.addAttribute("type", type);
+        Integer type = (Integer)session.getAttribute("type");
+        String type1 = type.toString();
+        model.addAttribute("type", type1);
 
         return "classementStage";
 
     }
-
-
 
 }
