@@ -38,24 +38,46 @@ public class Profil {
         model.addAttribute("type", type1);
 
         int id_user = (int)request.getSession().getAttribute("idUser");
+        String email = (String)request.getSession().getAttribute("email");
+
+        String password = connexionInscriptionDao.authentificationUser(email);
+        String username = (String)request.getSession().getAttribute("utilisateur");
+
+
         String emailUpdate = user.getEmail();
         String passwordUpdate = user.getPassword();
         String usernameUpdate = user.getUsername();
 
-        if (usernameUpdate != null || emailUpdate != null || passwordUpdate != null) {
-            connexionInscriptionDao.setUsername(usernameUpdate, id_user);
-            session.setAttribute("utilisateur", usernameUpdate);
 
-            connexionInscriptionDao.setEmail(emailUpdate, id_user);
-            session.setAttribute("email", emailUpdate);
+        if (usernameUpdate != null) {
+            if (usernameUpdate != ("")) {
 
-            connexionInscriptionDao.setPassword(passwordUpdate, id_user);
-            session.setAttribute("password", passwordUpdate);
+                connexionInscriptionDao.setUsername(usernameUpdate, email, password, id_user);
+                session.setAttribute("utilisateur", usernameUpdate);
+                System.out.println("10");
+            }
+        }
+
+        if (emailUpdate != null) {
+            if (emailUpdate != ("")) {
+
+                connexionInscriptionDao.setUsername(username, emailUpdate, password, id_user);
+                session.setAttribute("email", emailUpdate);
+                System.out.println("20");
+            }
 
         }
 
+        if (passwordUpdate != null) {
+            if (passwordUpdate != ("")) {
 
-        String username = (String)request.getSession().getAttribute("utilisateur");
+                connexionInscriptionDao.setUsername(username, email, passwordUpdate, id_user);
+                session.setAttribute("password", passwordUpdate);
+                System.out.println("30");
+            }
+
+        }
+
         Optional<User> option = connexionInscriptionDao.findById(id_user);
         user = option.get();
         List<Stage> listeStage = stageDao.findByIdUser(id_user);

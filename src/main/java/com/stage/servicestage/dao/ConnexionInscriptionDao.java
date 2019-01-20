@@ -29,9 +29,9 @@ public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
     Integer idUser (@Param ("email") String email);
 
     @Modifying
-    @Query("Update User  set username = :username where id_user = :iduser")
+    @Query("Update User  set username = :username, email = :email, password = :password  where id_user = :iduser")
     @Transactional
-    void setUsername(@Param("username")String username, @Param("iduser") int iduser);
+    void setUsername(@Param("username")String username, @Param("email")String email, @Param("password")String password, @Param("iduser") int iduser);
 
     @Modifying
     @Query("Update User  set email = :email where id_user = :iduser")

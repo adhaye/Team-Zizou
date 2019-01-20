@@ -40,10 +40,15 @@ public class Connexion {
                 String username = connexionInscriptionDao.Username(email);
                 Integer idUser = connexionInscriptionDao.idUser(email);
                 Integer type = connexionInscriptionDao.Type(email);
+
+
                 HttpSession session = request.getSession(true);
                 session.setAttribute("utilisateur", username);
                 session.setAttribute("idUser", idUser);
                 session.setAttribute("type", type);
+                session.setAttribute("email", email);
+
+
                 List<Stage> listeStage = stageDao.findAll();
                 model.addAttribute("list", listeStage);
                 String type1 = type.toString();
