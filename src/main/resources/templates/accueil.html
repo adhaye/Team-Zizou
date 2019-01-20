@@ -39,6 +39,14 @@
 
 </head>
 <body>
+    
+    <span th:if="${type == 1}">
+
+                    <div th:fragment="header4">
+                    </div>
+</span>
+
+<span th:else>
 
     <header th:insert="header2.html :: header2"> </header>
     <!--<div th:include="navbar::navbar"></div>-
@@ -52,8 +60,7 @@
             <img th:src="@{sheep2.png}" alt="non">
         </div>
     </header>
-
-
+</span>
 
     <table class="table">
 
