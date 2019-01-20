@@ -63,8 +63,10 @@ public class Administrateur {
 
     }
 
+
+
     @RequestMapping(value = "/deleteStage", method = {RequestMethod.POST, RequestMethod.GET})
-    public String DeleteStage(@RequestParam("id_stage") Integer id_stage, Model model, HttpServletRequest request) {
+    public String DeleteStage(@RequestParam("id_stage") int id_stage, Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session == null) {
             return "connexion";
