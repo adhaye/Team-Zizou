@@ -42,46 +42,17 @@ public class Profil {
         String passwordUpdate = user.getPassword();
         String usernameUpdate = user.getUsername();
 
-        /*
-        if (usernameUpdate != null){
-            System.out.println("okkkkkkk");
-            System.out.println(usernameUpdate);
-
-            connexionInscriptionDao.setUsername(usernameUpdate, id_user );
+        if (usernameUpdate != null || emailUpdate != null || passwordUpdate != null) {
+            connexionInscriptionDao.setUsername(usernameUpdate, id_user);
             session.setAttribute("utilisateur", usernameUpdate);
-        }*/
 
-        if (usernameUpdate == null){
-            connexionInscriptionDao.setUsername(usernameUpdate, id_user );
-            session.setAttribute("utilisateur", usernameUpdate);
-        }
-
-        if (emailUpdate == null){
-            connexionInscriptionDao.setEmail(emailUpdate, id_user );
+            connexionInscriptionDao.setEmail(emailUpdate, id_user);
             session.setAttribute("email", emailUpdate);
-        }
 
-        if (passwordUpdate == null){
-            connexionInscriptionDao.setPassword(passwordUpdate, id_user );
+            connexionInscriptionDao.setPassword(passwordUpdate, id_user);
             session.setAttribute("password", passwordUpdate);
+
         }
-
-
-        if (usernameUpdate != ("")){
-            connexionInscriptionDao.setUsername(usernameUpdate, id_user );
-            session.setAttribute("utilisateur", usernameUpdate);
-        }
-
-        if (emailUpdate != ("")){
-            connexionInscriptionDao.setEmail(emailUpdate, id_user );
-            session.setAttribute("email", emailUpdate);
-        }
-
-        if (passwordUpdate != ("")){
-            connexionInscriptionDao.setPassword(passwordUpdate, id_user );
-            session.setAttribute("password", passwordUpdate);
-        }
-
 
 
         String username = (String)request.getSession().getAttribute("utilisateur");
