@@ -46,6 +46,7 @@ public interface ConnexionInscriptionDao extends JpaRepository <User,Integer>{
 
     User save(User user);
     List<User> findAll();
+    List<User> findByType(int type);
     Optional<User> findById(int IDUser);
     void delete(User user);
 

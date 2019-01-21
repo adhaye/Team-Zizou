@@ -5,6 +5,7 @@ import com.stage.servicestage.dao.StageDao;
 import com.stage.servicestage.model.Stage;
 import com.stage.servicestage.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,7 @@ public class Administrateur {
             Integer type = (Integer)session.getAttribute("type");
             String type1 = type.toString();
             model.addAttribute("type", type1);
-            List<User> listeUser = connexionInscriptionDao.findAll();
+            List<User> listeUser = connexionInscriptionDao.findByType(0);
             model.addAttribute("listeUser", listeUser);
 
             List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
@@ -61,7 +62,7 @@ public class Administrateur {
         User user = option.get();
         connexionInscriptionDao.delete(user);
 
-        List<User> listeUser = connexionInscriptionDao.findAll();
+        List<User> listeUser = connexionInscriptionDao.findByType(0);
         model.addAttribute("listeUser", listeUser);
 
         List<Stage> listeStage = stageDao.findAllByOrderByIdStageDesc();
